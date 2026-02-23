@@ -352,6 +352,10 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * **Mainstream OS**: Windows, Linux, Unix, MacOS
 * **Private contact detail**: A contact detail that is not meant to be shared with others
+* **Alias**: A shortened version of a command that performs the same function.
+* **Gamertag**: A minecraft player’s in-game username.
+* **Modpack**: A collection of Minecraft modifications bundled together for gameplay.
+* **Server**: A multiplayer Minecraft world hosted online where players interact.
 
 --------------------------------------------------------------------------------------------------------------------
 
