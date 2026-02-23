@@ -287,14 +287,23 @@ _{Explain here how the data archiving feature will be implemented}_
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​                                    | I want to …​                 | So that I can…​                                                        |
-|----------|--------------------------------------------|------------------------------|------------------------------------------------------------------------|
-| `* * *`  | new user                                   | see usage instructions       | refer to instructions when I forget how to use the App                 |
-| `* * *`  | user                                       | add a new person             |                                                                        |
-| `* * *`  | user                                       | delete a person              | remove entries that I no longer need                                   |
-| `* * *`  | user                                       | find a person by name        | locate details of persons without having to go through the entire list |
-| `* *`    | user                                       | hide private contact details | minimize chance of someone else seeing them by accident                |
-| `*`      | user with many persons in the address book | sort persons by name         | locate a person easily                                                 |
+| Priority | As a …​             | I want to …​                                   | So that I can…​                                                 |
+|----------|--------------------|-----------------------------------------------|----------------------------------------------------------------|
+| `* * *`  | user               | add a new person                              |                                                                |
+| `* * *`  | user               | delete a person                               | remove entries that I no longer need                           |
+| `* * *`  | general user       | list out my contacts                          | see my contacts that I saved previously                        |
+| `* *`    | user               | find a person by name                         | locate details of persons without having to go through the entire list |
+| `* *`    | new user           | see usage instructions                        | refer to instructions when I forget how to use the App         |
+| `* *`    | general user       | update contact details                        | keep track of my contacts' latest information                  |
+| `* *`    | general user       | avoid adding duplicate contacts               | not store the same contact twice by accident                   |
+| `* *`    | general user       | sort the contacts alphabetically              | access my favorite contacts easier                             |
+| `* *`    | general user       | sort the contacts by added date               | find the contacts via added date                               |
+| `* *`    | gamer / pro typer  | delete my contacts in bulk                    | delete more contacts at one go                                 |
+| `*`      | general user       | use autocomplete when typing in CLI           | type faster and easier when I forget the command               |
+| `*`      | general user       | add profile picture to contact                | recognise contacts more easily via visual                      |
+| `*`      | general user       | see clear error messages when I enter invalid commands | correct my mistakes quickly                          |
+| `*`      | minecraft gamer    | see quality sprite styles that align with minecraft | so that the interface feels familiar and relevant to me |
+
 
 *{More to be added}*
 
