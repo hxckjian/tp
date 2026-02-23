@@ -341,6 +341,10 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 1.  Should work on any _mainstream OS_ as long as it has Java `17` or above installed.
 2.  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
 3.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
+4.  The application should not crash or terminate under normal circumstances (Ex. listing, adding, deleting contacts, etc.).
+5.  The application's data should not be corrupted in the event that there's an irregular termination of the app.
+6.  The application should continue operating normally when invalid input is provided.
+7.  All user data should be stored locally.
 
 *{More to be added}*
 
