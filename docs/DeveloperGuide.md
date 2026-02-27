@@ -289,10 +289,10 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 | Priority | As a …​             | I want to …​                                   | So that I can…​                                                 |
 |----------|--------------------|-----------------------------------------------|----------------------------------------------------------------|
-| `* * *`  | user               | add a new person                              |                                                                |
-| `* * *`  | user               | delete a person                               | remove entries that I no longer need                           |
+| `* * *`  | general user       | add a new person                              |                                                                |
+| `* * *`  | general user       | delete a person                               | remove entries that I no longer need                           |
 | `* * *`  | general user       | list out my contacts                          | see my contacts that I saved previously                        |
-| `* *`    | user               | find a person by name                         | locate details of persons without having to go through the entire list |
+| `* *`    | general user       | find a person by name                         | locate details of persons without having to go through the entire list |
 | `* *`    | new user           | see usage instructions                        | refer to instructions when I forget how to use the App         |
 | `* *`    | general user       | update contact details                        | keep track of my contacts' latest information                  |
 | `* *`    | general user       | avoid adding duplicate contacts               | not store the same contact twice by accident                   |
