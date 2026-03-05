@@ -45,15 +45,16 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 * Project Responsibilities: Deliverables and deadlines
 * Development Responsibilities: Integration
 
-### Jean Doe
+### Hwang Jihun
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/hwangjihun.png" width="200px">
 
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[github](http://github.com/hwangjihun)]
+[[portfolio](team/hwangjihun.md)]
 
 * Role: Developer
-* Responsibilities: Dev Ops + Threading
+* Project Responsibilities: In charge of Storage Component
+* Development Responsibilities: Code Quality
 
 ### James Doe
 
