@@ -10,7 +10,7 @@
 <page-nav-print />
 --------------------------------------------------------------------------------------------------------------------
 ## **Acknowledgements**
-The UI mockup was Generated with ChatGPT using the following [input](https://chatgpt.com/share/69a2747d-cb94-800c-bb01-49b78ced58b4)
+The UI mockup was generated with ChatGPT using the following [input](https://chatgpt.com/share/69a2747d-cb94-800c-bb01-49b78ced58b4).
 
 ## **Setting up and getting started**
 
