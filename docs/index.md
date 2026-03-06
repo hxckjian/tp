@@ -10,7 +10,8 @@
 
 ![Ui](images/Ui.png)
 
-**BlockBook is a desktop application for Minecraft gamers to connect with other players by saving contacts of players they meet on servers. With a familiar command line interface, adding, organising and finding is a breeze..** While it has a GUI, most of the user interactions happen using a CLI (Command Line Interface).
+**BlockBook is a desktop application for Minecraft gamers to connect with other players by saving contacts of players they meet on servers. With a familiar command line interface, adding, organising and finding is a breeze.**
+While it has a GUI, most of the user interactions happen using a CLI (Command Line Interface).
 
 
 * If you are interested in using BlockBook, head over to the [_Quick Start_ section of the **User Guide**](UserGuide.html#quick-start).
