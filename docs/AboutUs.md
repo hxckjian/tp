@@ -58,7 +58,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ### Xie YingWen
 
-<img src="images/YingWen178.png" width="200px">
+<img src="images/yingwen178.png" width="200px">
 
 [[github](https://github.com/YingWen178)]
 [[portfolio](team/yingwen178.md)]
