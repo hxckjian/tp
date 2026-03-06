@@ -552,7 +552,7 @@ Use case ends.
 *{More to be added}*
 
 ### Glossary
-- **Minecraft**:  A sandbox game developed and published by Mojang Studios. See more [here](https://www.minecraft.net/en-us).
+- **Minecraft**: A sandbox game developed and published by Mojang Studios. See more [here](https://www.minecraft.net/en-us).
     - **Gamertag**: A Minecraft player’s in-game username.
     - **Modpack**: A collection of Minecraft modifications bundled together for gameplay.
     - **Server**: A multiplayer Minecraft world hosted online where players interact.
