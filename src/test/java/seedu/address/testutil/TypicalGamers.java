@@ -23,7 +23,7 @@ import seedu.address.model.gamer.Gamer;
  */
 public class TypicalGamers {
 
-    public static final Gamer ALICE = new GamerBuilder().withName("Alice Pauline").withGamerTag("Herobrine1").build();
+    public static final Gamer ALICE = new GamerBuilder().withName("Alice Pauline").withGamerTag("Herobrine").build();
     public static final Gamer BENSON = new GamerBuilder().withName("Benson Meier").withGamerTag("Herobrine2").build();
     public static final Gamer CARL = new GamerBuilder().withName("Carl Kurz").withGamerTag("Herobrine3").build();
     public static final Gamer DANIEL = new GamerBuilder().withName("Daniel Meier").withGamerTag("Herobrine4").build();
@@ -32,11 +32,11 @@ public class TypicalGamers {
     public static final Gamer GEORGE = new GamerBuilder().withName("George Best").withGamerTag("Herobrine7").build();
 
     // Manually added
-    public static final Gamer HOON = new GamerBuilder().withName("Hoon Meier").withGamerTag("Herobrine").build();
-    public static final Gamer IDA = new GamerBuilder().withName("Ida Mueller").withGamerTag("Herobrine").build();
+    public static final Gamer HOON = new GamerBuilder().withName("Hoon Meier").withGamerTag("Herobrine8").build();
+    public static final Gamer IDA = new GamerBuilder().withName("Ida Mueller").withGamerTag("Herobrine9").build();
 
     // Manually added - Gamer's details found in {@code CommandTestUtil}
-    public static final Gamer AMY = new GamerBuilder().withName(VALID_NAME_AMY).withGamerTag("Herobrine").build();
+    public static final Gamer AMY = new GamerBuilder().withName(VALID_NAME_AMY).withGamerTag("Herobrine10").build();
 
     public static final String KEYWORD_MATCHING_MEIER = "Meier"; // A keyword that matches MEIER
 

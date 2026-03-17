@@ -27,7 +27,7 @@ public class AddCommandIntegrationTest {
 
     @Test
     public void execute_newGamer_success() {
-        Gamer validGamer = new GamerBuilder().build();
+        Gamer validGamer = new GamerBuilder().withGamerTag("unique_tag").build();
 
         Model expectedModel = new ModelManager(model.getBlockBook(), new UserPrefs());
         expectedModel.addGamer(validGamer);
@@ -41,6 +41,6 @@ public class AddCommandIntegrationTest {
     @Test
     public void execute_duplicateGamer_throwsCommandException() {
         Gamer gamerInList = model.getBlockBook().getGamerList().get(0);
-        assertCommandFailure(new AddCommand(gamerInList), model, AddCommand.MESSAGE_DUPLICATE_PERSON);
+        assertCommandFailure(new AddCommand(gamerInList), model, AddCommand.MESSAGE_DUPLICATE_GAMERTAG);
     }
 }

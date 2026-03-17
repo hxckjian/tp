@@ -25,7 +25,7 @@ public class AddCommand extends Command {
             + PREFIX_GAMERTAG + "ilovesteve";
 
     public static final String MESSAGE_SUCCESS = "Contact added: %1$s";
-    public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in Blockbook";
+    public static final String MESSAGE_DUPLICATE_GAMERTAG = "This gamertag is already used by someone in Blockbook.";
 
     private final Gamer toAdd;
 
@@ -42,7 +42,7 @@ public class AddCommand extends Command {
         requireNonNull(model);
 
         if (model.hasPerson(toAdd)) {
-            throw new CommandException(MESSAGE_DUPLICATE_PERSON);
+            throw new CommandException(MESSAGE_DUPLICATE_GAMERTAG);
         }
 
         model.addGamer(toAdd);

@@ -5,6 +5,8 @@ import static seedu.address.logic.Messages.MESSAGE_INDEX_OUT_OF_RANGE;
 import static seedu.address.logic.Messages.MESSAGE_UNKNOWN_COMMAND;
 import static seedu.address.logic.commands.CommandTestUtil.GAMERTAG_DESC_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.NAME_DESC_AMY;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_GAMERTAG_AMY;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_AMY;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalGamers.AMY;
 
@@ -170,7 +172,7 @@ public class LogicManagerTest {
 
         // Triggers the saveAddressBook method by executing an add command
         String addCommand = AddCommand.COMMAND_WORD + NAME_DESC_AMY + GAMERTAG_DESC_AMY;
-        Gamer expectedGamer = new GamerBuilder(AMY).build();
+        Gamer expectedGamer = new GamerBuilder().withName(VALID_NAME_AMY).withGamerTag(VALID_GAMERTAG_AMY).build();
         ModelManager expectedModel = new ModelManager();
         expectedModel.addGamer(expectedGamer);
         assertCommandFailure(addCommand, CommandException.class, expectedMessage, expectedModel);
