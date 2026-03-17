@@ -67,7 +67,7 @@ public class EditCommand extends Command {
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
-        List<Gamer> lastShownList = model.getFilteredPersonList();
+        List<Gamer> lastShownList = model.getFilteredGamerList();
 
         if (index.getZeroBased() >= lastShownList.size()) {
             throw new CommandException(Messages.MESSAGE_INDEX_OUT_OF_RANGE);

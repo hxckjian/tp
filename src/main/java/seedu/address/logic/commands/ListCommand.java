@@ -24,7 +24,7 @@ public class ListCommand extends Command {
         requireNonNull(model);
         try {
             model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
-            int gamerCount = model.getFilteredPersonList().size();
+            int gamerCount = model.getFilteredGamerList().size();
             if (gamerCount == 0) {
                 return new CommandResult(Messages.MESSAGE_NO_CONTACTS);
             }

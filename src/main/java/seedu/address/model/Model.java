@@ -59,10 +59,10 @@ public interface Model {
     boolean hasPerson(Gamer gamer);
 
     /**
-     * Deletes the given person.
-     * The person must exist in the address book.
+     * Deletes the given gamer.
+     * The gamer must exist in the address book.
      */
-    void deletePerson(Gamer target);
+    void deleteGamer(Gamer target);
 
     /**
      * Adds the given person.
@@ -78,7 +78,7 @@ public interface Model {
     void setPerson(Gamer target, Gamer editedGamer);
 
     /** Returns an unmodifiable view of the filtered person list */
-    ObservableList<Gamer> getFilteredPersonList();
+    ObservableList<Gamer> getFilteredGamerList();
 
     /**
      * Updates the filter of the filtered person list to filter by the given {@code predicate}.

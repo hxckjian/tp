@@ -103,7 +103,7 @@ public class EditCommandTest {
 
     @Test
     public void execute_duplicateGamerUnfilteredList_failure() {
-        Gamer firstGamer = model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased());
+        Gamer firstGamer = model.getFilteredGamerList().get(INDEX_FIRST_PERSON.getZeroBased());
         EditGamerDescriptor descriptor = new EditGamerDescriptorBuilder(firstGamer).build();
         EditCommand editCommand = new EditCommand(INDEX_SECOND_PERSON, descriptor);
 
@@ -124,7 +124,7 @@ public class EditCommandTest {
 
     @Test
     public void execute_invalidGamerIndexUnfilteredList_failure() {
-        Index outOfBoundIndex = Index.fromOneBased(model.getFilteredPersonList().size() + 1);
+        Index outOfBoundIndex = Index.fromOneBased(model.getFilteredGamerList().size() + 1);
         EditGamerDescriptor descriptor = new EditGamerDescriptorBuilder().withName(VALID_NAME_BOB).build();
         EditCommand editCommand = new EditCommand(outOfBoundIndex, descriptor);
 

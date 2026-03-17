@@ -29,21 +29,21 @@ public class DeleteCommandTest {
 
     @Test
     public void execute_validIndexUnfilteredList_success() {
-        Gamer personToDelete = model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased());
+        Gamer gamerToDelete = model.getFilteredGamerList().get(INDEX_FIRST_PERSON.getZeroBased());
         DeleteCommand deleteCommand = new DeleteCommand(INDEX_FIRST_PERSON);
 
         String expectedMessage = String.format(DeleteCommand.MESSAGE_DELETE_PERSON_SUCCESS,
-                Messages.format(personToDelete));
+                Messages.format(gamerToDelete));
 
         ModelManager expectedModel = new ModelManager(model.getBlockBook(), new UserPrefs());
-        expectedModel.deletePerson(personToDelete);
+        expectedModel.deleteGamer(gamerToDelete);
 
         assertCommandSuccess(deleteCommand, model, expectedMessage, expectedModel);
     }
 
     @Test
     public void execute_invalidIndexUnfilteredList_throwsCommandException() {
-        Index outOfBoundIndex = Index.fromOneBased(model.getFilteredPersonList().size() + 1);
+        Index outOfBoundIndex = Index.fromOneBased(model.getFilteredGamerList().size() + 1);
         DeleteCommand deleteCommand = new DeleteCommand(outOfBoundIndex);
 
         assertCommandFailure(deleteCommand, model, Messages.MESSAGE_INDEX_OUT_OF_RANGE);
@@ -53,14 +53,14 @@ public class DeleteCommandTest {
     public void execute_validIndexFilteredList_success() {
         showGamerAtIndex(model, INDEX_FIRST_PERSON);
 
-        Gamer personToDelete = model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased());
+        Gamer gamerToDelete = model.getFilteredGamerList().get(INDEX_FIRST_PERSON.getZeroBased());
         DeleteCommand deleteCommand = new DeleteCommand(INDEX_FIRST_PERSON);
 
         String expectedMessage = String.format(DeleteCommand.MESSAGE_DELETE_PERSON_SUCCESS,
-                Messages.format(personToDelete));
+                Messages.format(gamerToDelete));
 
         Model expectedModel = new ModelManager(model.getBlockBook(), new UserPrefs());
-        expectedModel.deletePerson(personToDelete);
+        expectedModel.deleteGamer(gamerToDelete);
         showNoGamer(expectedModel);
 
         assertCommandSuccess(deleteCommand, model, expectedMessage, expectedModel);
@@ -97,7 +97,7 @@ public class DeleteCommandTest {
         // null -> returns false
         assertFalse(deleteFirstCommand.equals(null));
 
-        // different person -> returns false
+        // different gamer -> returns false
         assertFalse(deleteFirstCommand.equals(deleteSecondCommand));
     }
 
@@ -115,7 +115,7 @@ public class DeleteCommandTest {
     private void showNoGamer(Model model) {
         model.updateFilteredPersonList(p -> false);
 
-        assertTrue(model.getFilteredPersonList().isEmpty());
+        assertTrue(model.getFilteredGamerList().isEmpty());
     }
 
     @Test
@@ -132,15 +132,15 @@ public class DeleteCommandTest {
     public void execute_deleteOnlyGamerInFilteredList_success() {
         showGamerAtIndex(model, INDEX_FIRST_PERSON);
 
-        Gamer personToDelete = model.getFilteredPersonList().get(0);
+        Gamer gamerToDelete = model.getFilteredGamerList().get(0);
         DeleteCommand deleteCommand = new DeleteCommand(INDEX_FIRST_PERSON);
 
         Model expectedModel = new ModelManager(model.getBlockBook(), new UserPrefs());
-        expectedModel.deletePerson(personToDelete);
+        expectedModel.deleteGamer(gamerToDelete);
         showNoGamer(expectedModel);
 
         String expectedMessage = String.format(DeleteCommand.MESSAGE_DELETE_PERSON_SUCCESS,
-                Messages.format(personToDelete));
+                Messages.format(gamerToDelete));
 
         assertCommandSuccess(deleteCommand, model, expectedMessage, expectedModel);
     }
@@ -150,18 +150,18 @@ public class DeleteCommandTest {
         DeleteCommand deleteFirst = new DeleteCommand(INDEX_FIRST_PERSON);
         assertCommandSuccess(deleteFirst, model,
                 String.format(DeleteCommand.MESSAGE_DELETE_PERSON_SUCCESS,
-                        Messages.format(model.getFilteredPersonList().get(0))),
+                        Messages.format(model.getFilteredGamerList().get(0))),
                 model);
 
         DeleteCommand deleteSecond = new DeleteCommand(INDEX_FIRST_PERSON);
-        Gamer nextPerson = model.getFilteredPersonList().get(0);
+        Gamer nextGamer = model.getFilteredGamerList().get(0);
 
         Model expectedModel = new ModelManager(model.getBlockBook(), new UserPrefs());
-        expectedModel.deletePerson(nextPerson);
+        expectedModel.deleteGamer(nextGamer);
 
         assertCommandSuccess(deleteSecond, model,
                 String.format(DeleteCommand.MESSAGE_DELETE_PERSON_SUCCESS,
-                        Messages.format(nextPerson)),
+                        Messages.format(nextGamer)),
                 expectedModel);
     }
 }

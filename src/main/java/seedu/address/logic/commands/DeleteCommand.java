@@ -12,7 +12,7 @@ import seedu.address.model.Model;
 import seedu.address.model.gamer.Gamer;
 
 /**
- * Deletes a person identified using it's displayed index from the address book.
+ * Deletes a gamer identified using it's displayed index from the address book.
  */
 public class DeleteCommand extends Command {
 
@@ -34,7 +34,7 @@ public class DeleteCommand extends Command {
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
-        List<Gamer> lastShownList = model.getFilteredPersonList();
+        List<Gamer> lastShownList = model.getFilteredGamerList();
 
         validateDeleteIndex(lastShownList);
 
@@ -42,7 +42,7 @@ public class DeleteCommand extends Command {
         assert index < lastShownList.size();
 
         Gamer gamerToDelete = lastShownList.get(index);
-        model.deletePerson(gamerToDelete);
+        model.deleteGamer(gamerToDelete);
         return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, Messages.format(gamerToDelete)));
     }
 

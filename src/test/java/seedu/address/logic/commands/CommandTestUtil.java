@@ -103,11 +103,11 @@ public class CommandTestUtil {
         // we are unable to defensively copy the model for comparison later, so we can
         // only do so by copying its components.
         BlockBook expectedBlockBook = new BlockBook(actualModel.getBlockBook());
-        List<Gamer> expectedFilteredList = new ArrayList<>(actualModel.getFilteredPersonList());
+        List<Gamer> expectedFilteredList = new ArrayList<>(actualModel.getFilteredGamerList());
 
         assertThrows(CommandException.class, expectedMessage, () -> command.execute(actualModel));
         assertEquals(expectedBlockBook, actualModel.getBlockBook());
-        assertEquals(expectedFilteredList, actualModel.getFilteredPersonList());
+        assertEquals(expectedFilteredList, actualModel.getFilteredGamerList());
     }
 
     /**
@@ -115,13 +115,13 @@ public class CommandTestUtil {
      * {@code model}'s address book.
      */
     public static void showGamerAtIndex(Model model, Index targetIndex) {
-        assertTrue(targetIndex.getZeroBased() < model.getFilteredPersonList().size());
+        assertTrue(targetIndex.getZeroBased() < model.getFilteredGamerList().size());
 
-        Gamer person = model.getFilteredPersonList().get(targetIndex.getZeroBased());
+        Gamer person = model.getFilteredGamerList().get(targetIndex.getZeroBased());
         final String[] splitName = person.getName().fullName.split("\\s+");
         model.updateFilteredPersonList(new NameContainsKeywordsPredicate(Arrays.asList(splitName[0])));
 
-        assertEquals(1, model.getFilteredPersonList().size());
+        assertEquals(1, model.getFilteredGamerList().size());
     }
 
 }

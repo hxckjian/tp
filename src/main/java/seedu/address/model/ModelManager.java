@@ -94,7 +94,7 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public void deletePerson(Gamer target) {
+    public void deleteGamer(Gamer target) {
         addressBook.removeGamer(target);
     }
 
@@ -114,11 +114,11 @@ public class ModelManager implements Model {
     //=========== Filtered Person List Accessors =============================================================
 
     /**
-     * Returns an unmodifiable view of the list of {@code Person} backed by the internal list of
+     * Returns an unmodifiable view of the list of {@code Gamer} backed by the internal list of
      * {@code versionedAddressBook}
      */
     @Override
-    public ObservableList<Gamer> getFilteredPersonList() {
+    public ObservableList<Gamer> getFilteredGamerList() {
         return filteredGamers;
     }
 
