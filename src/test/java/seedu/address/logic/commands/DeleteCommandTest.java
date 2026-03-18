@@ -144,4 +144,24 @@ public class DeleteCommandTest {
 
         assertCommandSuccess(deleteCommand, model, expectedMessage, expectedModel);
     }
+
+    @Test
+    public void execute_multipleDeletes_success() {
+        DeleteCommand deleteFirst = new DeleteCommand(INDEX_FIRST_PERSON);
+        assertCommandSuccess(deleteFirst, model,
+                String.format(DeleteCommand.MESSAGE_DELETE_PERSON_SUCCESS,
+                        Messages.format(model.getFilteredPersonList().get(0))),
+                model);
+
+        DeleteCommand deleteSecond = new DeleteCommand(INDEX_FIRST_PERSON);
+        Gamer nextPerson = model.getFilteredPersonList().get(0);
+
+        Model expectedModel = new ModelManager(model.getBlockBook(), new UserPrefs());
+        expectedModel.deletePerson(nextPerson);
+
+        assertCommandSuccess(deleteSecond, model,
+                String.format(DeleteCommand.MESSAGE_DELETE_PERSON_SUCCESS,
+                        Messages.format(nextPerson)),
+                expectedModel);
+    }
 }

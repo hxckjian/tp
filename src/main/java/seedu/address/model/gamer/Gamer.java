@@ -64,7 +64,7 @@ public class Gamer {
         }
 
         return otherGamer != null
-                && otherGamer.getName().equals(getName());
+                && otherGamer.getGamerTag().equals(getGamerTag());
     }
 
     /**
@@ -83,7 +83,8 @@ public class Gamer {
         }
 
         Gamer otherGamer = (Gamer) other;
-        return name.equals(otherGamer.name);
+        return name.equals(otherGamer.name)
+                && gamerTag.equals(otherGamer.gamerTag);
         //        && phone.equals(otherPerson.phone)
         //        && email.equals(otherPerson.email);
     }

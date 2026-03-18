@@ -38,23 +38,45 @@ public class ParserUtil {
      */
     public static Name parseName(String name) throws ParseException {
         requireNonNull(name);
-        String trimmedName = name.trim();
-        if (!Name.isValidName(trimmedName)) {
+        String normalizedName = normalizeName(name);
+        if (!Name.isValidName(normalizedName)) {
             throw new ParseException(Name.MESSAGE_CONSTRAINTS);
         }
-        return new Name(trimmedName);
+        return new Name(normalizedName);
     }
 
     /**
-     * Parses a {@code String name} into a {@code Name}.
+     * Normalizes the given name by trimming, collapsing multiple spaces, and applying capitalization.
+     */
+    private static String normalizeName(String name) {
+        String collapsed = name.trim().replaceAll("\\s+", " ");
+        StringBuilder builder = new StringBuilder(collapsed.length());
+        boolean capitalizeNext = true;
+        for (int i = 0; i < collapsed.length(); i++) {
+            char currentChar = collapsed.charAt(i);
+            if (Character.isLetter(currentChar)) {
+                builder.append(capitalizeNext
+                        ? Character.toUpperCase(currentChar)
+                        : Character.toLowerCase(currentChar));
+                capitalizeNext = false;
+            } else {
+                builder.append(currentChar);
+                capitalizeNext = currentChar == ' ' || currentChar == '-' || currentChar == '\'';
+            }
+        }
+        return builder.toString();
+    }
+
+    /**
+     * Parses a {@code String gamerTag} into a {@code GamerTag}.
      * Leading and trailing whitespaces will be trimmed.
      *
-     * @throws ParseException if the given {@code name} is invalid.
+     * @throws ParseException if the given {@code gamerTag} is invalid.
      */
     public static GamerTag parseGamerTag(String gamerTag) throws ParseException {
         requireNonNull(gamerTag);
         String trimmedGamerTag = gamerTag.trim();
-        if (!Name.isValidName(trimmedGamerTag)) {
+        if (!GamerTag.isValidGamerTag(trimmedGamerTag)) {
             throw new ParseException(GamerTag.MESSAGE_CONSTRAINTS);
         }
         return new GamerTag(trimmedGamerTag);
