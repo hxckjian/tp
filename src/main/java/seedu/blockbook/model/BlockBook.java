@@ -9,8 +9,8 @@ import seedu.blockbook.model.gamer.Gamer;
 import seedu.blockbook.model.gamer.UniqueGamerList;
 
 /**
- * Wraps all data at the address-book level
- * Duplicates are not allowed (by .isSameGamer comparison)
+ * Wraps all data at the BlockBook level.
+ * Duplicates are not allowed (by .isSameGamer comparison).
  */
 public class BlockBook implements ReadOnlyBlockBook {
 
@@ -30,7 +30,7 @@ public class BlockBook implements ReadOnlyBlockBook {
     public BlockBook() {}
 
     /**
-     * Creates an BlockBook using the Gamers in the {@code toBeCopied}
+     * Creates a BlockBook using the gamers in {@code toBeCopied}.
      */
     public BlockBook(ReadOnlyBlockBook toBeCopied) {
         this();
@@ -56,10 +56,10 @@ public class BlockBook implements ReadOnlyBlockBook {
         setGamers(newData.getGamerList());
     }
 
-    //// person-level operations
+    //// gamer-level operations
 
     /**
-     * Returns true if a person with the same identity as {@code person} exists in the address book.
+     * Returns true if a gamer with the same identity as {@code gamer} exists in the BlockBook.
      */
     public boolean hasGamer(Gamer gamer) {
         requireNonNull(gamer);
@@ -67,17 +67,17 @@ public class BlockBook implements ReadOnlyBlockBook {
     }
 
     /**
-     * Adds a person to the address book.
-     * The person must not already exist in the address book.
+     * Adds a gamer to the BlockBook.
+     * The gamer must not already exist in the BlockBook.
      */
     public void addGamer(Gamer p) {
         gamers.add(p);
     }
 
     /**
-     * Replaces the given person {@code target} in the list with {@code editedGamer}.
-     * {@code target} must exist in the address book.
-     * The person identity of {@code editedGamer} must not be the same as another existing person in the address book.
+     * Replaces the given gamer {@code target} in the list with {@code editedGamer}.
+     * {@code target} must exist in the BlockBook.
+     * The gamer identity of {@code editedGamer} must not be the same as another existing gamer in the BlockBook.
      */
     public void setGamer(Gamer target, Gamer editedGamer) {
         requireNonNull(editedGamer);
@@ -86,8 +86,8 @@ public class BlockBook implements ReadOnlyBlockBook {
     }
 
     /**
-     * Removes {@code key} from this {@code AddressBook}.
-     * {@code key} must exist in the address book.
+     * Removes {@code key} from this {@code BlockBook}.
+     * {@code key} must exist in the BlockBook.
      */
     public void removeGamer(Gamer key) {
         gamers.remove(key);
@@ -118,8 +118,8 @@ public class BlockBook implements ReadOnlyBlockBook {
             return false;
         }
 
-        BlockBook otherAddressBook = (BlockBook) other;
-        return gamers.equals(otherAddressBook.gamers);
+        BlockBook otherBlockBook = (BlockBook) other;
+        return gamers.equals(otherBlockBook.gamers);
     }
 
     @Override

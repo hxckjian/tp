@@ -7,7 +7,7 @@ import seedu.blockbook.logic.Messages;
 import seedu.blockbook.model.Model;
 
 /**
- * Lists all gamers in the address book to the user.
+ * Lists all gamers in the BlockBook to the user.
  */
 public class ListCommand extends Command {
 

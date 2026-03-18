@@ -65,14 +65,14 @@ public class StorageManager implements Storage {
     }
 
     @Override
-    public void saveBlockBook(ReadOnlyBlockBook addressBook) throws IOException {
-        saveBlockBook(addressBook, blockBookStorage.getBlockBookFilePath());
+    public void saveBlockBook(ReadOnlyBlockBook blockBook) throws IOException {
+        saveBlockBook(blockBook, blockBookStorage.getBlockBookFilePath());
     }
 
     @Override
-    public void saveBlockBook(ReadOnlyBlockBook addressBook, Path filePath) throws IOException {
+    public void saveBlockBook(ReadOnlyBlockBook blockBook, Path filePath) throws IOException {
         logger.fine("Attempting to write to data file: " + filePath);
-        blockBookStorage.saveBlockBook(addressBook, filePath);
+        blockBookStorage.saveBlockBook(blockBook, filePath);
     }
 
 }

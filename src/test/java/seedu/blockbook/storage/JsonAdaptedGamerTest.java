@@ -36,7 +36,7 @@ public class JsonAdaptedGamerTest {
 
 
     @Test
-    public void toModelType_validPersonDetails_returnsPerson() throws Exception {
+    public void toModelType_validGamerDetails_returnsGamer() throws Exception {
         JsonAdaptedGamer gamer = new JsonAdaptedGamer(BENSON);
         assertEquals(BENSON, gamer.toModelType());
     }
@@ -103,4 +103,5 @@ public class JsonAdaptedGamerTest {
 
 
 }
+
 

@@ -1,17 +1,17 @@
-package seedu.address.logic.commands;
+package seedu.blockbook.logic.commands;
 
-import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
-import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
-import static seedu.address.testutil.TypicalGamers.getTypicalBlockBook;
+import static seedu.blockbook.logic.commands.CommandTestUtil.assertCommandFailure;
+import static seedu.blockbook.logic.commands.CommandTestUtil.assertCommandSuccess;
+import static seedu.blockbook.testutil.TypicalGamers.getTypicalBlockBook;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import seedu.address.model.Model;
-import seedu.address.model.ModelManager;
-import seedu.address.model.UserPrefs;
-import seedu.address.model.gamer.Gamer;
-import seedu.address.testutil.GamerBuilder;
+import seedu.blockbook.model.Model;
+import seedu.blockbook.model.ModelManager;
+import seedu.blockbook.model.UserPrefs;
+import seedu.blockbook.model.gamer.Gamer;
+import seedu.blockbook.testutil.GamerBuilder;
 
 /**
  * Contains integration tests (interaction with the Model) for {@code AddCommand}.

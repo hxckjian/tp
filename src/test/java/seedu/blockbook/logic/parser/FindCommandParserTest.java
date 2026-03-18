@@ -9,7 +9,7 @@ package seedu.blockbook.logic.parser;
 //import org.junit.jupiter.api.Test;
 
 //import seedu.blockbook.logic.commands.FindCommand;
-//import seedu.blockbook.model.person.NameContainsKeywordsPredicate;
+//import seedu.blockbook.model.Gamer.NameContainsKeywordsPredicate;
 
 public class FindCommandParserTest {
 
@@ -32,4 +32,5 @@ public class FindCommandParserTest {
 //    }
 
 }
+
 

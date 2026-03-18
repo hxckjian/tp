@@ -33,15 +33,15 @@ public interface BlockBookStorage {
 
     /**
      * Saves the given {@link ReadOnlyBlockBook} to the storage.
-     * @param addressBook cannot be null.
+     * @param blockBook cannot be null.
      * @throws IOException if there was any problem writing to the file.
      */
-    void saveBlockBook(ReadOnlyBlockBook addressBook) throws IOException;
+    void saveBlockBook(ReadOnlyBlockBook blockBook) throws IOException;
 
     /**
      * @see #saveBlockBook(ReadOnlyBlockBook)
      */
-    void saveBlockBook(ReadOnlyBlockBook addressBook, Path filePath) throws IOException;
+    void saveBlockBook(ReadOnlyBlockBook blockBook, Path filePath) throws IOException;
 
 }
 

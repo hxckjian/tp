@@ -43,14 +43,14 @@ public class TypicalGamers {
     private TypicalGamers() {} // prevents instantiation
 
     /**
-     * Returns an {@code AddressBook} with all the typical gamers.
+     * Returns a {@code BlockBook} with all the typical gamers.
      */
     public static BlockBook getTypicalBlockBook() {
-        BlockBook ab = new BlockBook();
+        BlockBook blockBook = new BlockBook();
         for (Gamer gamer : getTypicalGamers()) {
-            ab.addGamer(gamer);
+            blockBook.addGamer(gamer);
         }
-        return ab;
+        return blockBook;
     }
 
     public static List<Gamer> getTypicalGamers() {

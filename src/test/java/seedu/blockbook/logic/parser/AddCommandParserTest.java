@@ -1,29 +1,29 @@
-package seedu.address.logic.parser;
+package seedu.blockbook.logic.parser;
 
-import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.logic.commands.CommandTestUtil.GAMERTAG_DESC_AMY;
-import static seedu.address.logic.commands.CommandTestUtil.GAMERTAG_DESC_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.INVALID_GAMERTAG_DESC;
-import static seedu.address.logic.commands.CommandTestUtil.INVALID_NAME_DESC;
-import static seedu.address.logic.commands.CommandTestUtil.NAME_DESC_AMY;
-import static seedu.address.logic.commands.CommandTestUtil.NAME_DESC_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.PREAMBLE_NON_EMPTY;
-import static seedu.address.logic.commands.CommandTestUtil.PREAMBLE_WHITESPACE;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_GAMERTAG_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_GAMERTAG;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
-import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
-import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
+import static seedu.blockbook.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.blockbook.logic.commands.CommandTestUtil.GAMERTAG_DESC_AMY;
+import static seedu.blockbook.logic.commands.CommandTestUtil.GAMERTAG_DESC_BOB;
+import static seedu.blockbook.logic.commands.CommandTestUtil.INVALID_GAMERTAG_DESC;
+import static seedu.blockbook.logic.commands.CommandTestUtil.INVALID_NAME_DESC;
+import static seedu.blockbook.logic.commands.CommandTestUtil.NAME_DESC_AMY;
+import static seedu.blockbook.logic.commands.CommandTestUtil.NAME_DESC_BOB;
+import static seedu.blockbook.logic.commands.CommandTestUtil.PREAMBLE_NON_EMPTY;
+import static seedu.blockbook.logic.commands.CommandTestUtil.PREAMBLE_WHITESPACE;
+import static seedu.blockbook.logic.commands.CommandTestUtil.VALID_GAMERTAG_BOB;
+import static seedu.blockbook.logic.commands.CommandTestUtil.VALID_NAME_BOB;
+import static seedu.blockbook.logic.parser.CliSyntax.PREFIX_GAMERTAG;
+import static seedu.blockbook.logic.parser.CliSyntax.PREFIX_NAME;
+import static seedu.blockbook.logic.parser.CommandParserTestUtil.assertParseFailure;
+import static seedu.blockbook.logic.parser.CommandParserTestUtil.assertParseSuccess;
 
 import org.junit.jupiter.api.Test;
 
-import seedu.address.logic.Messages;
-import seedu.address.logic.commands.AddCommand;
-import seedu.address.model.gamer.Gamer;
-import seedu.address.model.gamer.GamerTag;
-import seedu.address.model.gamer.Name;
-import seedu.address.testutil.GamerBuilder;
+import seedu.blockbook.logic.Messages;
+import seedu.blockbook.logic.commands.AddCommand;
+import seedu.blockbook.model.gamer.Gamer;
+import seedu.blockbook.model.gamer.GamerTag;
+import seedu.blockbook.model.gamer.Name;
+import seedu.blockbook.testutil.GamerBuilder;
 
 public class AddCommandParserTest {
     private AddCommandParser parser = new AddCommandParser();

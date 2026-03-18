@@ -26,14 +26,14 @@ import seedu.blockbook.model.gamer.Phone;
 import seedu.blockbook.model.gamer.Region;
 
 /**
- * Edits the details of an existing person in the address book.
+ * Edits the details of an existing gamer in the BlockBook.
  */
 public class EditCommand extends Command {
 
     public static final String COMMAND_WORD = "edit";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the details of the person identified "
-            + "by the index number used in the displayed person list. "
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the details of the gamer identified "
+            + "by the index number used in the displayed gamer list. "
             + "Existing values will be overwritten by the input values.\n"
             + "Parameters: INDEX (must be a positive integer) "
             + "[" + PREFIX_NAME + "NAME] "
@@ -45,16 +45,16 @@ public class EditCommand extends Command {
             + PREFIX_PHONE + "91234567 "
             + PREFIX_EMAIL + "johndoe@example.com";
 
-    public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edited Person: %1$s";
+    public static final String MESSAGE_EDIT_GAMER_SUCCESS = "Edited Gamer: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
-    public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the address book.";
+    public static final String MESSAGE_DUPLICATE_GAMER = "This gamer already exists in the BlockBook.";
 
     private final Index index;
     private final EditGamerDescriptor editGamerDescriptor;
 
     /**
-     * @param index of the person in the filtered person list to edit
-     * @param editGamerDescriptor details to edit the person with
+     * @param index of the gamer in the filtered gamer list to edit
+     * @param editGamerDescriptor details to edit the gamer with
      */
     public EditCommand(Index index, EditGamerDescriptor editGamerDescriptor) {
         requireNonNull(index);
@@ -74,29 +74,29 @@ public class EditCommand extends Command {
         }
 
         Gamer gamerToEdit = lastShownList.get(index.getZeroBased());
-        Gamer editedGamer = createEditedPerson(gamerToEdit, editGamerDescriptor);
+        Gamer editedGamer = createEditedGamer(gamerToEdit, editGamerDescriptor);
 
-        if (!gamerToEdit.isSameGamer(editedGamer) && model.hasPerson(editedGamer)) {
-            throw new CommandException(MESSAGE_DUPLICATE_PERSON);
+        if (!gamerToEdit.isSameGamer(editedGamer) && model.hasGamer(editedGamer)) {
+            throw new CommandException(MESSAGE_DUPLICATE_GAMER);
         }
 
-        model.setPerson(gamerToEdit, editedGamer);
+        model.setGamer(gamerToEdit, editedGamer);
         model.updateFilteredGamerList(PREDICATE_SHOW_ALL_GAMERS);
-        return new CommandResult(String.format(MESSAGE_EDIT_PERSON_SUCCESS, Messages.format(editedGamer)));
+        return new CommandResult(String.format(MESSAGE_EDIT_GAMER_SUCCESS, Messages.format(editedGamer)));
     }
 
     /**
-     * Creates and returns a {@code Person} with the details of {@code personToEdit}
+     * Creates and returns a {@code Gamer} with the details of {@code gamerToEdit}
      * edited with {@code editGamerDescriptor}.
      */
-    private static Gamer createEditedPerson(Gamer gamerToEdit, EditGamerDescriptor editGamerDescriptor) {
+    private static Gamer createEditedGamer(Gamer gamerToEdit, EditGamerDescriptor editGamerDescriptor) {
         assert gamerToEdit != null;
 
         Name updatedName = editGamerDescriptor.getName().orElse(gamerToEdit.getName());
-        // Phone updatedPhone = editGamerDescriptor.getPhone().orElse(personToEdit.getPhone());
-        // Email updatedEmail = editGamerDescriptor.getEmail().orElse(personToEdit.getEmail());
-        // Address updatedAddress = editGamerDescriptor.getAddress().orElse(personToEdit.getAddress());
-        // Set<Tag> updatedTags = editGamerDescriptor.getTags().orElse(personToEdit.getTags());
+        // Phone updatedPhone = editGamerDescriptor.getPhone().orElse(gamerToEdit.getPhone());
+        // Email updatedEmail = editGamerDescriptor.getEmail().orElse(gamerToEdit.getEmail());
+        // Address updatedAddress = editGamerDescriptor.getAddress().orElse(gamerToEdit.getAddress());
+        // Set<Tag> updatedTags = editGamerDescriptor.getTags().orElse(gamerToEdit.getTags());
 
         Region updatedRegion = new Region("Singapore");
         GamerTag updatedGamerTag = new GamerTag("Herobrine");
@@ -129,8 +129,8 @@ public class EditCommand extends Command {
     }
 
     /**
-     * Stores the details to edit the person with. Each non-empty field value will replace the
-     * corresponding field value of the person.
+     * Stores the details to edit the gamer with. Each non-empty field value will replace the
+     * corresponding field value of the gamer.
      */
     public static class EditGamerDescriptor {
         private Name name;

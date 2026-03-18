@@ -4,7 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static seedu.blockbook.commons.util.AppUtil.checkArgument;
 
 /**
- * Represents a Gamer's name in the address book.
+ * Represents a Gamer's name in the BlockBook.
  * Guarantees: immutable; is valid as declared in {@link #isValidName(String)}
  */
 public class Name {

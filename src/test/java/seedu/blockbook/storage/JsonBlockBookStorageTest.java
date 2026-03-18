@@ -51,12 +51,12 @@ public class JsonBlockBookStorageTest {
     }
 
     @Test
-    public void readBlockBook_invalidPersonBlockBook_throwDataLoadingException() {
+    public void readBlockBook_invalidGamerBlockBook_throwDataLoadingException() {
         assertThrows(DataLoadingException.class, () -> readBlockBook("invalidGamerBlockBook.json"));
     }
 
     @Test
-    public void readBlockBook_invalidAndValidPersonBlockBook_throwDataLoadingException() {
+    public void readBlockBook_invalidAndValidGamerBlockBook_throwDataLoadingException() {
         assertThrows(DataLoadingException.class, () -> readBlockBook("invalidAndValidGamerBlockBook.json"));
     }
 
@@ -92,12 +92,12 @@ public class JsonBlockBookStorageTest {
     }
 
     /**
-     * Saves {@code addressBook} at the specified {@code filePath}.
+     * Saves {@code blockBook} at the specified {@code filePath}.
      */
-    private void saveBlockBook(ReadOnlyBlockBook addressBook, String filePath) {
+    private void saveBlockBook(ReadOnlyBlockBook blockBook, String filePath) {
         try {
             new JsonBlockBookStorage(Paths.get(filePath))
-                    .saveBlockBook(addressBook, addToTestDataPathIfNotNull(filePath));
+                    .saveBlockBook(blockBook, addToTestDataPathIfNotNull(filePath));
         } catch (IOException ioe) {
             throw new AssertionError("There should not be an error writing to the file.", ioe);
         }
@@ -108,4 +108,5 @@ public class JsonBlockBookStorageTest {
         assertThrows(NullPointerException.class, () -> saveBlockBook(new BlockBook(), null));
     }
 }
+
 

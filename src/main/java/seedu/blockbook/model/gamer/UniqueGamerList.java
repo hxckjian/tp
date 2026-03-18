@@ -12,15 +12,13 @@ import seedu.blockbook.model.gamer.exceptions.DuplicateGamerException;
 import seedu.blockbook.model.gamer.exceptions.GamerNotFoundException;
 
 /**
- * A list of persons that enforces uniqueness between its elements and does not allow nulls.
- * A person is considered unique by comparing using {@code Person#isSamePerson(Person)}. As such, adding and updating of
- * persons uses Person#isSamePerson(Person) for equality so as to ensure that the person being added or updated is
- * unique in terms of identity in the UniquePersonList. However, the removal of a person uses Person#equals(Object) so
- * as to ensure that the person with exactly the same fields will be removed.
+ * A list of gamers that enforces uniqueness between its elements and does not allow nulls.
+ * A gamer is considered unique by comparing using {@link Gamer#isSameGamer(Gamer)}. As such, adding and updating of
+ * gamers uses {@link Gamer#isSameGamer(Gamer)} for equality so as to ensure that the gamer being added or updated is
+ * unique in terms of identity in the UniqueGamerList. However, the removal of a gamer uses {@link Gamer#equals(Object)}
+ * so as to ensure that the gamer with exactly the same fields will be removed.
  *
  * Supports a minimal set of list operations.
- *
- * @see Gamer#isSameGamer(Gamer)
  */
 public class UniqueGamerList implements Iterable<Gamer> {
 
@@ -90,7 +88,7 @@ public class UniqueGamerList implements Iterable<Gamer> {
      */
     public void setGamers(List<Gamer> gamers) {
         requireAllNonNull(gamers);
-        if (!personsAreUnique(gamers)) {
+        if (!gamersAreUnique(gamers)) {
             throw new DuplicateGamerException();
         }
 
@@ -137,7 +135,7 @@ public class UniqueGamerList implements Iterable<Gamer> {
     /**
      * Returns true if {@code gamers} contains only unique gamers.
      */
-    private boolean personsAreUnique(List<Gamer> gamers) {
+    private boolean gamersAreUnique(List<Gamer> gamers) {
         for (int i = 0; i < gamers.size() - 1; i++) {
             for (int j = i + 1; j < gamers.size(); j++) {
                 if (gamers.get(i).isSameGamer(gamers.get(j))) {

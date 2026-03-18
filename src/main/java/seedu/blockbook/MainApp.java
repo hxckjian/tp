@@ -76,20 +76,20 @@ public class MainApp extends Application {
     private Model initModelManager(Storage storage, ReadOnlyUserPrefs userPrefs) {
         logger.info("Using data file : " + storage.getBlockBookFilePath());
 
-        Optional<ReadOnlyBlockBook> addressBookOptional;
+        Optional<ReadOnlyBlockBook> blockBookOptional;
         ReadOnlyBlockBook initialData;
         try {
-            addressBookOptional = storage.readBlockBook();
-            if (!addressBookOptional.isPresent()) {
+            blockBookOptional = storage.readBlockBook();
+            if (!blockBookOptional.isPresent()) {
                 logger.info("Creating a new data file " + storage.getBlockBookFilePath()
-                        + " populated with a sample AddressBook.");
+                        + " populated with a sample BlockBook.");
 
                 // Shows content on resultDisplay
                 CommandResult message = new CommandResult(
                         "No save file found! Starting with an empty Gamer Contact list!", false, false);
                 storageInitMessage = message.getFeedbackToUser();
             }
-            initialData = addressBookOptional.orElseGet(SampleDataUtil::getSampleAddressBook);
+            initialData = blockBookOptional.orElseGet(SampleDataUtil::getSampleBlockBook);
         } catch (DataLoadingException e) {
             logger.warning("Data file at " + storage.getBlockBookFilePath() + " could not be loaded."
                     + " Will be starting with an empty Gamer Contact list instead!");

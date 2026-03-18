@@ -1,26 +1,26 @@
-package seedu.address.logic.commands;
+package seedu.blockbook.logic.commands;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_GAMERTAG;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
-import static seedu.address.testutil.Assert.assertThrows;
+import static seedu.blockbook.logic.parser.CliSyntax.PREFIX_ADDRESS;
+import static seedu.blockbook.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.blockbook.logic.parser.CliSyntax.PREFIX_GAMERTAG;
+import static seedu.blockbook.logic.parser.CliSyntax.PREFIX_NAME;
+import static seedu.blockbook.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.blockbook.logic.parser.CliSyntax.PREFIX_TAG;
+import static seedu.blockbook.testutil.Assert.assertThrows;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import seedu.address.commons.core.index.Index;
-import seedu.address.logic.commands.exceptions.CommandException;
-import seedu.address.model.BlockBook;
-import seedu.address.model.Model;
-import seedu.address.model.gamer.Gamer;
-import seedu.address.model.gamer.NameContainsKeywordsPredicate;
-import seedu.address.testutil.EditGamerDescriptorBuilder;
+import seedu.blockbook.commons.core.index.Index;
+import seedu.blockbook.logic.commands.exceptions.CommandException;
+import seedu.blockbook.model.BlockBook;
+import seedu.blockbook.model.Model;
+import seedu.blockbook.model.gamer.Gamer;
+import seedu.blockbook.model.gamer.NameContainsKeywordsPredicate;
+import seedu.blockbook.testutil.EditGamerDescriptorBuilder;
 
 /**
  * Contains helper methods for testing commands.
@@ -103,31 +103,31 @@ public class CommandTestUtil {
      * Executes the given {@code command}, confirms that <br>
      * - a {@code CommandException} is thrown <br>
      * - the CommandException message matches {@code expectedMessage} <br>
-     * - the address book, filtered person list and selected person in {@code actualModel} remain unchanged
+     * - the BlockBook, filtered gamer list and selected gamer in {@code actualModel} remain unchanged
      */
     public static void assertCommandFailure(Command command, Model actualModel, String expectedMessage) {
         // we are unable to defensively copy the model for comparison later, so we can
         // only do so by copying its components.
         BlockBook expectedBlockBook = new BlockBook(actualModel.getBlockBook());
-        List<Gamer> expectedFilteredList = new ArrayList<>(actualModel.getFilteredPersonList());
+        List<Gamer> expectedFilteredList = new ArrayList<>(actualModel.getFilteredGamerList());
 
         assertThrows(CommandException.class, expectedMessage, () -> command.execute(actualModel));
         assertEquals(expectedBlockBook, actualModel.getBlockBook());
-        assertEquals(expectedFilteredList, actualModel.getFilteredPersonList());
+        assertEquals(expectedFilteredList, actualModel.getFilteredGamerList());
     }
 
     /**
-     * Updates {@code model}'s filtered list to show only the person at the given {@code targetIndex} in the
-     * {@code model}'s address book.
+     * Updates {@code model}'s filtered list to show only the gamer at the given {@code targetIndex} in the
+     * {@code model}'s BlockBook.
      */
     public static void showGamerAtIndex(Model model, Index targetIndex) {
-        assertTrue(targetIndex.getZeroBased() < model.getFilteredPersonList().size());
+        assertTrue(targetIndex.getZeroBased() < model.getFilteredGamerList().size());
 
-        Gamer person = model.getFilteredPersonList().get(targetIndex.getZeroBased());
-        final String[] splitName = person.getName().fullName.split("\\s+");
-        model.updateFilteredPersonList(new NameContainsKeywordsPredicate(Arrays.asList(splitName[0])));
+        Gamer gamer = model.getFilteredGamerList().get(targetIndex.getZeroBased());
+        final String[] splitName = gamer.getName().fullName.split("\\s+");
+        model.updateFilteredGamerList(new NameContainsKeywordsPredicate(Arrays.asList(splitName[0])));
 
-        assertEquals(1, model.getFilteredPersonList().size());
+        assertEquals(1, model.getFilteredGamerList().size());
     }
 
 }

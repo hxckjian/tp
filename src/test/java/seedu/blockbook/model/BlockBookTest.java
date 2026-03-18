@@ -6,8 +6,8 @@ package seedu.blockbook.model;
 //import static seedu.blockbook.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
 //import static seedu.blockbook.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 //import static seedu.blockbook.testutil.Assert.assertThrows;
-//import static seedu.blockbook.testutil.TypicalPersons.ALICE;
-//import static seedu.blockbook.testutil.TypicalPersons.getTypicalAddressBook;
+//import static seedu.blockbook.testutil.TypicalGamers.ALICE;
+//import static seedu.blockbook.testutil.TypicalGamers.getTypicalBlockBook;
 //
 //import java.util.Arrays;
 //import java.util.Collection;
@@ -18,92 +18,94 @@ package seedu.blockbook.model;
 //
 //import javafx.collections.FXCollections;
 //import javafx.collections.ObservableList;
-//import seedu.blockbook.model.person.Person;
-//import seedu.blockbook.model.person.exceptions.DuplicatePersonException;
-//import seedu.blockbook.testutil.PersonBuilder;
+//import seedu.blockbook.model.Gamer.Gamer;
+//import seedu.blockbook.model.Gamer.exceptions.DuplicateGamerException;
+//import seedu.blockbook.testutil.GamerBuilder;
 
 public class BlockBookTest {
 
-//    private final AddressBook addressBook = new AddressBook();
+//    private final BlockBook BlockBook = new BlockBook();
 //
 //    @Test
 //    public void constructor() {
-//        assertEquals(Collections.emptyList(), addressBook.getPersonList());
+//        assertEquals(Collections.emptyList(), BlockBook.getGamerList());
 //    }
 //
 //    @Test
 //    public void resetData_null_throwsNullPointerException() {
-//        assertThrows(NullPointerException.class, () -> addressBook.resetData(null));
+//        assertThrows(NullPointerException.class, () -> BlockBook.resetData(null));
 //    }
 //
 //    @Test
-//    public void resetData_withValidReadOnlyAddressBook_replacesData() {
-//        AddressBook newData = getTypicalAddressBook();
-//        addressBook.resetData(newData);
-//        assertEquals(newData, addressBook);
+//    public void resetData_withValidReadOnlyBlockBook_replacesData() {
+//        BlockBook newData = getTypicalBlockBook();
+//        BlockBook.resetData(newData);
+//        assertEquals(newData, BlockBook);
 //    }
 //
 //    @Test
-//    public void resetData_withDuplicatePersons_throwsDuplicatePersonException() {
-//        // Two persons with the same identity fields
-//        Person editedAlice = new PersonBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
+//    public void resetData_withDuplicateGamers_throwsDuplicateGamerException() {
+//        // Two gamers with the same identity fields
+//        Gamer editedAlice = new GamerBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
 //                .build();
-//        List<Person> newPersons = Arrays.asList(ALICE, editedAlice);
-//        AddressBookStub newData = new AddressBookStub(newPersons);
+//        List<Gamer> newGamers = Arrays.asList(ALICE, editedAlice);
+//        BlockBookStub newData = new BlockBookStub(newGamers);
 //
-//        assertThrows(DuplicatePersonException.class, () -> addressBook.resetData(newData));
+//        assertThrows(DuplicateGamerException.class, () -> BlockBook.resetData(newData));
 //    }
 //
 //    @Test
-//    public void hasPerson_nullPerson_throwsNullPointerException() {
-//        assertThrows(NullPointerException.class, () -> addressBook.hasPerson(null));
+//    public void hasGamer_nullGamer_throwsNullPointerException() {
+//        assertThrows(NullPointerException.class, () -> BlockBook.hasGamer(null));
 //    }
 //
 //    @Test
-//    public void hasPerson_personNotInAddressBook_returnsFalse() {
-//        assertFalse(addressBook.hasPerson(ALICE));
+//    public void hasGamer_GamerNotInBlockBook_returnsFalse() {
+//        assertFalse(BlockBook.hasGamer(ALICE));
 //    }
 //
 //    @Test
-//    public void hasPerson_personInAddressBook_returnsTrue() {
-//        addressBook.addPerson(ALICE);
-//        assertTrue(addressBook.hasPerson(ALICE));
+//    public void hasGamer_GamerInBlockBook_returnsTrue() {
+//        BlockBook.addGamer(ALICE);
+//        assertTrue(BlockBook.hasGamer(ALICE));
 //    }
 //
 //    @Test
-//    public void hasPerson_personWithSameIdentityFieldsInAddressBook_returnsTrue() {
-//        addressBook.addPerson(ALICE);
-//        Person editedAlice = new PersonBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
+//    public void hasGamer_GamerWithSameIdentityFieldsInBlockBook_returnsTrue() {
+//        BlockBook.addGamer(ALICE);
+//        Gamer editedAlice = new GamerBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
 //                .build();
-//        assertTrue(addressBook.hasPerson(editedAlice));
+//        assertTrue(BlockBook.hasGamer(editedAlice));
 //    }
 //
 //    @Test
-//    public void getPersonList_modifyList_throwsUnsupportedOperationException() {
-//        assertThrows(UnsupportedOperationException.class, () -> addressBook.getPersonList().remove(0));
+//    public void getGamerList_modifyList_throwsUnsupportedOperationException() {
+//        assertThrows(UnsupportedOperationException.class, () -> BlockBook.getGamerList().remove(0));
 //    }
 //
 //    @Test
 //    public void toStringMethod() {
-//        String expected = AddressBook.class.getCanonicalName() + "{persons=" + addressBook.getPersonList() + "}";
-//        assertEquals(expected, addressBook.toString());
+//        String expected = BlockBook.class.getCanonicalName() + "{gamers=" + BlockBook.getGamerList() + "}";
+//        assertEquals(expected, BlockBook.toString());
 //    }
 //
 //    /**
-//     * A stub ReadOnlyAddressBook whose persons list can violate interface constraints.
+//     * A stub ReadOnlyBlockBook whose gamers list can violate interface constraints.
 //     */
-//    private static class AddressBookStub implements ReadOnlyAddressBook {
-//        private final ObservableList<Person> persons = FXCollections.observableArrayList();
+//    private static class BlockBookStub implements ReadOnlyBlockBook {
+//        private final ObservableList<Gamer> gamers = FXCollections.observableArrayList();
 //
-//        AddressBookStub(Collection<Person> persons) {
-//            this.persons.setAll(persons);
+//        BlockBookStub(Collection<Gamer> gamers) {
+//            this.gamers.setAll(gamers);
 //        }
 //
 //        @Override
-//        public ObservableList<Person> getPersonList() {
-//            return persons;
+//        public ObservableList<Gamer> getGamerList() {
+//            return gamers;
 //        }
 //    }
 
 }
+
+
 

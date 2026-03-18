@@ -1,18 +1,18 @@
-package seedu.address.logic.parser;
+package seedu.blockbook.logic.parser;
 
-import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_GAMERTAG;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
+import static seedu.blockbook.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.blockbook.logic.parser.CliSyntax.PREFIX_GAMERTAG;
+import static seedu.blockbook.logic.parser.CliSyntax.PREFIX_NAME;
 
 import java.util.stream.Stream;
 
-import seedu.address.logic.commands.AddCommand;
-import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.gamer.Gamer;
-import seedu.address.model.gamer.GamerTag;
-import seedu.address.model.gamer.Name;
-// import seedu.address.model.gamer.Phone;
-// import seedu.address.model.gamer.Region;
+import seedu.blockbook.logic.commands.AddCommand;
+import seedu.blockbook.logic.parser.exceptions.ParseException;
+import seedu.blockbook.model.gamer.Gamer;
+import seedu.blockbook.model.gamer.GamerTag;
+import seedu.blockbook.model.gamer.Name;
+// import seedu.blockbook.model.gamer.Phone;
+// import seedu.blockbook.model.gamer.Region;
 
 /**
  * Parses input arguments and creates a new AddCommand object

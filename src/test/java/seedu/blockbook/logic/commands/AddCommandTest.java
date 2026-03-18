@@ -1,11 +1,11 @@
-package seedu.address.logic.commands;
+package seedu.blockbook.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.testutil.Assert.assertThrows;
-import static seedu.address.testutil.TypicalGamers.ALICE;
+import static seedu.blockbook.testutil.Assert.assertThrows;
+import static seedu.blockbook.testutil.TypicalGamers.ALICE;
 
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -15,14 +15,14 @@ import java.util.function.Predicate;
 import org.junit.jupiter.api.Test;
 
 import javafx.collections.ObservableList;
-import seedu.address.commons.core.GuiSettings;
-import seedu.address.logic.commands.exceptions.CommandException;
-import seedu.address.model.BlockBook;
-import seedu.address.model.Model;
-import seedu.address.model.ReadOnlyBlockBook;
-import seedu.address.model.ReadOnlyUserPrefs;
-import seedu.address.model.gamer.Gamer;
-import seedu.address.testutil.GamerBuilder;
+import seedu.blockbook.commons.core.GuiSettings;
+import seedu.blockbook.logic.commands.exceptions.CommandException;
+import seedu.blockbook.model.BlockBook;
+import seedu.blockbook.model.Model;
+import seedu.blockbook.model.ReadOnlyBlockBook;
+import seedu.blockbook.model.ReadOnlyUserPrefs;
+import seedu.blockbook.model.gamer.Gamer;
+import seedu.blockbook.testutil.GamerBuilder;
 
 public class AddCommandTest {
 
@@ -120,7 +120,7 @@ public class AddCommandTest {
         }
 
         @Override
-        public void setBlockBook(ReadOnlyBlockBook addressBook) {
+        public void setBlockBook(ReadOnlyBlockBook blockBook) {
             throw new AssertionError("This method should not be called.");
         }
 
@@ -130,12 +130,12 @@ public class AddCommandTest {
         }
 
         @Override
-        public boolean hasPerson(Gamer gamer) {
+        public boolean hasGamer(Gamer gamer) {
             throw new AssertionError("This method should not be called.");
         }
 
         @Override
-        public void deletePerson(Gamer target) {
+        public void deleteGamer(Gamer target) {
             throw new AssertionError("This method should not be called.");
         }
 
@@ -145,17 +145,17 @@ public class AddCommandTest {
         }
 
         @Override
-        public void setPerson(Gamer target, Gamer editedGamer) {
+        public void setGamer(Gamer target, Gamer editedGamer) {
             throw new AssertionError("This method should not be called.");
         }
 
         @Override
-        public ObservableList<Gamer> getFilteredPersonList() {
+        public ObservableList<Gamer> getFilteredGamerList() {
             throw new AssertionError("This method should not be called.");
         }
 
         @Override
-        public void updateFilteredPersonList(Predicate<Gamer> predicate) {
+        public void updateFilteredGamerList(Predicate<Gamer> predicate) {
             throw new AssertionError("This method should not be called.");
         }
     }
@@ -172,7 +172,7 @@ public class AddCommandTest {
         }
 
         @Override
-        public boolean hasPerson(Gamer gamer) {
+        public boolean hasGamer(Gamer gamer) {
             requireNonNull(gamer);
             return this.gamer.isSameGamer(gamer);
         }
@@ -185,7 +185,7 @@ public class AddCommandTest {
         final ArrayList<Gamer> gamersAdded = new ArrayList<>();
 
         @Override
-        public boolean hasPerson(Gamer gamer) {
+        public boolean hasGamer(Gamer gamer) {
             requireNonNull(gamer);
             return gamersAdded.stream().anyMatch(gamer::isSameGamer);
         }

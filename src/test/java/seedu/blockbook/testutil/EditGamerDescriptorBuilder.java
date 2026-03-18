@@ -29,13 +29,13 @@ public class EditGamerDescriptorBuilder {
     }
 
     /**
-     * Returns an {@code EditGamerDescriptor} with fields containing {@code person}'s details
+     * Returns an {@code EditGamerDescriptor} with fields containing {@code gamer}'s details
      */
-    public EditGamerDescriptorBuilder(Gamer person) {
+    public EditGamerDescriptorBuilder(Gamer gamer) {
         descriptor = new EditGamerDescriptor();
-        descriptor.setName(person.getName());
-        // descriptor.setPhone(person.getPhone());
-        // descriptor.setEmail(person.getEmail());
+        descriptor.setName(gamer.getName());
+        // descriptor.setPhone(gamer.getPhone());
+        // descriptor.setEmail(gamer.getEmail());
     }
 
     /**

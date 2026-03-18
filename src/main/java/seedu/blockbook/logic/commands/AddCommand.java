@@ -1,22 +1,22 @@
-package seedu.address.logic.commands;
+package seedu.blockbook.logic.commands;
 
 import static java.util.Objects.requireNonNull;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_GAMERTAG;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
+import static seedu.blockbook.logic.parser.CliSyntax.PREFIX_GAMERTAG;
+import static seedu.blockbook.logic.parser.CliSyntax.PREFIX_NAME;
 
-import seedu.address.commons.util.ToStringBuilder;
-import seedu.address.logic.commands.exceptions.CommandException;
-import seedu.address.model.Model;
-import seedu.address.model.gamer.Gamer;
+import seedu.blockbook.commons.util.ToStringBuilder;
+import seedu.blockbook.logic.commands.exceptions.CommandException;
+import seedu.blockbook.model.Model;
+import seedu.blockbook.model.gamer.Gamer;
 
 /**
- * Adds a person to the address book.
+ * Adds a gamer to the BlockBook.
  */
 public class AddCommand extends Command {
 
     public static final String COMMAND_WORD = "add";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a person to Blockbook. "
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a gamer to BlockBook. "
             + "Parameters: "
             + PREFIX_NAME + "NAME "
             + PREFIX_GAMERTAG + "GAMERTAG\n"
@@ -25,12 +25,12 @@ public class AddCommand extends Command {
             + PREFIX_GAMERTAG + "ilovesteve";
 
     public static final String MESSAGE_SUCCESS = "Contact added: %1$s";
-    public static final String MESSAGE_DUPLICATE_GAMERTAG = "This gamertag is already used by someone in Blockbook.";
+    public static final String MESSAGE_DUPLICATE_GAMERTAG = "This gamertag is already used by someone in BlockBook.";
 
     private final Gamer toAdd;
 
     /**
-     * Creates an AddCommand to add the specified {@code Person}
+     * Creates an AddCommand to add the specified {@code Gamer}.
      */
     public AddCommand(Gamer gamer) {
         requireNonNull(gamer);
@@ -41,7 +41,7 @@ public class AddCommand extends Command {
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
 
-        if (model.hasPerson(toAdd)) {
+        if (model.hasGamer(toAdd)) {
             throw new CommandException(MESSAGE_DUPLICATE_GAMERTAG);
         }
 

@@ -27,7 +27,7 @@ public interface Storage extends BlockBookStorage, UserPrefsStorage {
     Optional<ReadOnlyBlockBook> readBlockBook() throws DataLoadingException;
 
     @Override
-    void saveBlockBook(ReadOnlyBlockBook addressBook) throws IOException;
+    void saveBlockBook(ReadOnlyBlockBook blockBook) throws IOException;
 
 }
 

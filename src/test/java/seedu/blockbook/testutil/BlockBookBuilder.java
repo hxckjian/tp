@@ -4,9 +4,9 @@ import seedu.blockbook.model.BlockBook;
 import seedu.blockbook.model.gamer.Gamer;
 
 /**
- * A utility class to help with building Addressbook objects.
+ * A utility class to help with building BlockBook objects.
  * Example usage: <br>
- *     {@code AddressBook ab = new AddressBookBuilder().withPerson("John", "Doe").build();}
+ *     {@code BlockBook bb = new BlockBookBuilder().withGamer("John", "Doe").build();}
  */
 public class BlockBookBuilder {
 
@@ -21,10 +21,10 @@ public class BlockBookBuilder {
     }
 
     /**
-     * Adds a new {@code Person} to the {@code AddressBook} that we are building.
+     * Adds a new {@code Gamer} to the {@code BlockBook} that we are building.
      */
-    public BlockBookBuilder withPerson(Gamer person) {
-        blockBook.addGamer(person);
+    public BlockBookBuilder withGamer(Gamer gamer) {
+        blockBook.addGamer(gamer);
         return this;
     }
 
@@ -32,4 +32,5 @@ public class BlockBookBuilder {
         return blockBook;
     }
 }
+
 

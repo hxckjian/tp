@@ -6,12 +6,12 @@ import seedu.blockbook.model.BlockBook;
 import seedu.blockbook.model.Model;
 
 /**
- * Clears the address book.
+ * Clears the BlockBook.
  */
 public class ClearCommand extends Command {
 
     public static final String COMMAND_WORD = "clear";
-    public static final String MESSAGE_SUCCESS = "Address book has been cleared!";
+    public static final String MESSAGE_SUCCESS = "BlockBook has been cleared!";
 
 
     @Override

@@ -19,7 +19,7 @@ import seedu.blockbook.model.gamer.Gamer;
 @JsonRootName(value = "gamers")
 class JsonSerializableBlockBook {
 
-    public static final String MESSAGE_DUPLICATE_PERSON = "Gamers list contains duplicate person(s).";
+    public static final String MESSAGE_DUPLICATE_GAMER = "Gamers list contains duplicate gamer(s).";
 
     private final List<JsonAdaptedGamer> gamers = new ArrayList<>();
 
@@ -46,15 +46,15 @@ class JsonSerializableBlockBook {
      * @throws IllegalValueException if there were any data constraints violated.
      */
     public BlockBook toModelType() throws IllegalValueException {
-        BlockBook addressBook = new BlockBook();
+        BlockBook blockBook = new BlockBook();
         for (JsonAdaptedGamer jsonAdaptedGamer : gamers) {
             Gamer gamer = jsonAdaptedGamer.toModelType();
-            if (addressBook.hasGamer(gamer)) {
-                throw new IllegalValueException(MESSAGE_DUPLICATE_PERSON);
+            if (blockBook.hasGamer(gamer)) {
+                throw new IllegalValueException(MESSAGE_DUPLICATE_GAMER);
             }
-            addressBook.addGamer(gamer);
+            blockBook.addGamer(gamer);
         }
-        return addressBook;
+        return blockBook;
     }
 
 }

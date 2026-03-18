@@ -41,10 +41,10 @@ public class EditCommandTest {
         EditGamerDescriptor descriptor = new EditGamerDescriptorBuilder(editedGamer).build();
         EditCommand editCommand = new EditCommand(INDEX_FIRST_GAMER, descriptor);
 
-        String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_PERSON_SUCCESS, Messages.format(editedGamer));
+        String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_GAMER_SUCCESS, Messages.format(editedGamer));
 
         Model expectedModel = new ModelManager(new BlockBook(model.getBlockBook()), new UserPrefs());
-        expectedModel.setPerson(model.getFilteredGamerList().get(0), editedGamer);
+        expectedModel.setGamer(model.getFilteredGamerList().get(0), editedGamer);
 
         assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
     }
@@ -54,18 +54,18 @@ public class EditCommandTest {
     //        Index indexLastGamer = Index.fromOneBased(model.getFilteredGamerList().size());
     //        Gamer lastGamer = model.getFilteredGamerList().get(indexLastGamer.getZeroBased());
 
-    //        GamerBuilder personInList = new GamerBuilder(lastGamer);
-    //        Gamer editedGamer = personInList.withName(VALID_NAME_BOB).build();
+    //        GamerBuilder gamerInList = new GamerBuilder(lastGamer);
+    //        Gamer editedGamer = gamerInList.withName(VALID_NAME_BOB).build();
 
     //        EditGamerDescriptor descriptor = new EditGamerDescriptorBuilder().withName(VALID_NAME_BOB)
     //                .withPhone(VALID_PHONE_BOB).build();
     //        EditCommand editCommand = new EditCommand(indexLastGamer, descriptor);
 
     //        String expectedMessage = String.format(
-    //          EditCommand.MESSAGE_EDIT_PERSON_SUCCESS, Messages.format(editedGamer));
+    //          EditCommand.MESSAGE_EDIT_GAMER_SUCCESS, Messages.format(editedGamer));
 
     //        Model expectedModel = new ModelManager(new BlockBook(model.getBlockBook()), new UserPrefs());
-    //        expectedModel.setPerson(lastGamer, editedGamer);
+    //        expectedModel.setGamer(lastGamer, editedGamer);
 
     //        assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
     // }
@@ -76,7 +76,7 @@ public class EditCommandTest {
     //        Gamer editedGamer = model.getFilteredGamerList().get(INDEX_FIRST_GAMER.getZeroBased());
 
     //        String expectedMessage = String.format(
-    //        EditCommand.MESSAGE_EDIT_PERSON_SUCCESS, Messages.format(editedGamer));
+    //        EditCommand.MESSAGE_EDIT_GAMER_SUCCESS, Messages.format(editedGamer));
 
     //        Model expectedModel = new ModelManager(new BlockBook(model.getBlockBook()), new UserPrefs());
 
@@ -87,16 +87,16 @@ public class EditCommandTest {
     //    public void execute_filteredList_success() {
     //        showGamerAtIndex(model, INDEX_FIRST_GAMER);
 
-    //        Gamer personInFilteredList = model.getFilteredGamerList().get(INDEX_FIRST_GAMER.getZeroBased());
-    //        Gamer editedGamer = new GamerBuilder(personInFilteredList).withName(VALID_NAME_BOB).build();
+    //        Gamer gamerInFilteredList = model.getFilteredGamerList().get(INDEX_FIRST_GAMER.getZeroBased());
+    //        Gamer editedGamer = new GamerBuilder(gamerInFilteredList).withName(VALID_NAME_BOB).build();
     //        EditCommand editCommand = new EditCommand(INDEX_FIRST_GAMER,
     //                new EditGamerDescriptorBuilder().withName(VALID_NAME_BOB).build());
 
     //        String expectedMessage = String.format(
-    //        EditCommand.MESSAGE_EDIT_PERSON_SUCCESS, Messages.format(editedGamer));
+    //        EditCommand.MESSAGE_EDIT_GAMER_SUCCESS, Messages.format(editedGamer));
 
     //        Model expectedModel = new ModelManager(new BlockBook(model.getBlockBook()), new UserPrefs());
-    //        expectedModel.setPerson(model.getFilteredGamerList().get(0), editedGamer);
+    //        expectedModel.setGamer(model.getFilteredGamerList().get(0), editedGamer);
     //
     //        assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
     // }
@@ -108,7 +108,7 @@ public class EditCommandTest {
         EditGamerDescriptor descriptor = new EditGamerDescriptorBuilder(firstGamer).build();
         EditCommand editCommand = new EditCommand(INDEX_SECOND_GAMER, descriptor);
 
-        assertCommandFailure(editCommand, model, EditCommand.MESSAGE_DUPLICATE_PERSON);
+        assertCommandFailure(editCommand, model, EditCommand.MESSAGE_DUPLICATE_GAMER);
     }
 
 
@@ -116,12 +116,12 @@ public class EditCommandTest {
     public void execute_duplicateGamerFilteredList_failure() {
         showGamerAtIndex(model, INDEX_FIRST_GAMER);
 
-        // edit person in filtered list into a duplicate in address book
-        Gamer personInList = model.getBlockBook().getGamerList().get(INDEX_SECOND_GAMER.getZeroBased());
+        // edit gamer in filtered list into a duplicate in BlockBook
+        Gamer gamerInList = model.getBlockBook().getGamerList().get(INDEX_SECOND_GAMER.getZeroBased());
         EditCommand editCommand = new EditCommand(INDEX_FIRST_GAMER,
-                new EditGamerDescriptorBuilder(personInList).build());
+                new EditGamerDescriptorBuilder(gamerInList).build());
 
-        assertCommandFailure(editCommand, model, EditCommand.MESSAGE_DUPLICATE_PERSON);
+        assertCommandFailure(editCommand, model, EditCommand.MESSAGE_DUPLICATE_GAMER);
     }
     */
     @Test

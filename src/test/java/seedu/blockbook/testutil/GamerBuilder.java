@@ -12,7 +12,7 @@ import seedu.blockbook.model.gamer.Name;
 //import seedu.blockbook.model.util.SampleDataUtil;
 
 /**
- * A utility class to help with building Person objects.
+ * A utility class to help with building Gamer objects.
  */
 public class GamerBuilder {
 
@@ -28,7 +28,7 @@ public class GamerBuilder {
     // private Email email;
 
     /**
-     * Creates a {@code PersonBuilder} with the default details.
+     * Creates a {@code GamerBuilder} with the default details.
      */
     public GamerBuilder() {
         name = new Name(DEFAULT_NAME);
@@ -37,7 +37,7 @@ public class GamerBuilder {
     }
 
     /**
-     * Initializes the PersonBuilder with the data of {@code gamerToCopy}.
+     * Initializes the GamerBuilder with the data of {@code gamerToCopy}.
      */
     public GamerBuilder(Gamer gamerToCopy) {
         name = gamerToCopy.getName();
@@ -46,7 +46,7 @@ public class GamerBuilder {
     }
 
     /**
-     * Sets the {@code Name} of the {@code Person} that we are building.
+     * Sets the {@code Name} of the {@code Gamer} that we are building.
      */
     public GamerBuilder withName(String name) {
         this.name = new Name(name);
@@ -62,7 +62,7 @@ public class GamerBuilder {
     }
 
     // /**
-    // * Sets the {@code Phone} of the {@code Person} that we are building.
+    // * Sets the {@code Phone} of the {@code Gamer} that we are building.
     // */
     // public GamerBuilder withPhone(String phone) {
     // this.phone = new Phone(phone);
@@ -70,7 +70,7 @@ public class GamerBuilder {
     // }
 
     // /**
-    // * Sets the {@code Email} of the {@code Person} that we are building.
+    // * Sets the {@code Email} of the {@code Gamer} that we are building.
     // */
     // public GamerBuilder withEmail(String email) {
     // this.email = new Email(email);

@@ -14,26 +14,26 @@ import seedu.blockbook.commons.core.LogsCenter;
 import seedu.blockbook.model.gamer.Gamer;
 
 /**
- * Represents the in-memory model of the address book data.
+ * Represents the in-memory model of the BlockBook data.
  */
 public class ModelManager implements Model {
     private static final Logger logger = LogsCenter.getLogger(ModelManager.class);
 
-    private final BlockBook addressBook;
+    private final BlockBook blockBook;
     private final UserPrefs userPrefs;
     private final FilteredList<Gamer> filteredGamers;
 
     /**
-     * Initializes a ModelManager with the given addressBook and userPrefs.
+     * Initializes a ModelManager with the given block book data and user prefs.
      */
-    public ModelManager(ReadOnlyBlockBook addressBook, ReadOnlyUserPrefs userPrefs) {
-        requireAllNonNull(addressBook, userPrefs);
+    public ModelManager(ReadOnlyBlockBook blockBook, ReadOnlyUserPrefs userPrefs) {
+        requireAllNonNull(blockBook, userPrefs);
 
-        logger.fine("Initializing with address book: " + addressBook + " and user prefs " + userPrefs);
+        logger.fine("Initializing with BlockBook: " + blockBook + " and user prefs " + userPrefs);
 
-        this.addressBook = new BlockBook(addressBook);
+        this.blockBook = new BlockBook(blockBook);
         this.userPrefs = new UserPrefs(userPrefs);
-        filteredGamers = new FilteredList<>(this.addressBook.getGamerList());
+        filteredGamers = new FilteredList<>(this.blockBook.getGamerList());
     }
 
     public ModelManager() {
@@ -75,47 +75,46 @@ public class ModelManager implements Model {
         userPrefs.setBlockBookFilePath(blockBookFilePath);
     }
 
-    //=========== AddressBook ================================================================================
+    //=========== BlockBook ================================================================================
 
     @Override
-    public void setBlockBook(ReadOnlyBlockBook addressBook) {
-        this.addressBook.resetData(addressBook);
+    public void setBlockBook(ReadOnlyBlockBook blockBook) {
+        this.blockBook.resetData(blockBook);
     }
 
     @Override
     public ReadOnlyBlockBook getBlockBook() {
-        return addressBook;
+        return blockBook;
     }
 
     @Override
-    public boolean hasPerson(Gamer gamer) {
+    public boolean hasGamer(Gamer gamer) {
         requireNonNull(gamer);
-        return addressBook.hasGamer(gamer);
+        return blockBook.hasGamer(gamer);
     }
 
     @Override
-    public void deletePerson(Gamer target) {
-        addressBook.removeGamer(target);
+    public void deleteGamer(Gamer target) {
+        blockBook.removeGamer(target);
     }
 
     @Override
     public void addGamer(Gamer gamer) {
-        addressBook.addGamer(gamer);
+        blockBook.addGamer(gamer);
         updateFilteredGamerList(PREDICATE_SHOW_ALL_GAMERS);
     }
 
     @Override
-    public void setPerson(Gamer target, Gamer editedGamer) {
+    public void setGamer(Gamer target, Gamer editedGamer) {
         requireAllNonNull(target, editedGamer);
 
-        addressBook.setGamer(target, editedGamer);
+        blockBook.setGamer(target, editedGamer);
     }
 
-    //=========== Filtered Person List Accessors =============================================================
+    //=========== Filtered Gamer List Accessors =============================================================
 
     /**
-     * Returns an unmodifiable view of the list of {@code Person} backed by the internal list of
-     * {@code versionedAddressBook}
+     * Returns an unmodifiable view of the list of {@code Gamer} backed by the internal block book list.
      */
     @Override
     public ObservableList<Gamer> getFilteredGamerList() {
@@ -140,7 +139,7 @@ public class ModelManager implements Model {
         }
 
         ModelManager otherModelManager = (ModelManager) other;
-        return addressBook.equals(otherModelManager.addressBook)
+        return blockBook.equals(otherModelManager.blockBook)
                 && userPrefs.equals(otherModelManager.userPrefs)
                 && filteredGamers.equals(otherModelManager.filteredGamers);
     }

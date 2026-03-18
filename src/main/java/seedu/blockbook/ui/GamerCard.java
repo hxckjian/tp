@@ -49,9 +49,9 @@ public class GamerCard extends UiPart<Region> {
         id.setText(displayedIndex + ". ");
         name.setText(gamer.getName().fullName);
         gamerTag.setText("Gamertag: " + gamer.getGamerTag().fullGamerTag);
-        // region.setText(person.getRegion().fullRegion);
-        // phone.setText(person.getPhone().value);
-        // email.setText(person.getEmail().value);
+        // region.setText(gamer.getRegion().fullRegion);
+        // phone.setText(gamer.getPhone().value);
+        // email.setText(gamer.getEmail().value);
     }
 }
 

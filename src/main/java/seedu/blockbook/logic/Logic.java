@@ -34,7 +34,7 @@ public interface Logic {
     ObservableList<Gamer> getFilteredGamerList();
 
     /**
-     * Returns the user prefs' address book file path.
+     * Returns the user prefs' BlockBook file path.
      */
     Path getBlockBookFilePath();
 

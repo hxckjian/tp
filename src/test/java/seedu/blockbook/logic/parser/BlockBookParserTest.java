@@ -17,17 +17,17 @@ package seedu.blockbook.logic.parser;
 //import seedu.blockbook.logic.commands.ClearCommand;
 //import seedu.blockbook.logic.commands.DeleteCommand;
 //import seedu.blockbook.logic.commands.EditCommand;
-//import seedu.blockbook.logic.commands.EditCommand.EditPersonDescriptor;
+//import seedu.blockbook.logic.commands.EditCommand.EditGamerDescriptor;
 //import seedu.blockbook.logic.commands.ExitCommand;
 //import seedu.blockbook.logic.commands.FindCommand;
 //import seedu.blockbook.logic.commands.HelpCommand;
 //import seedu.blockbook.logic.commands.ListCommand;
 //import seedu.blockbook.logic.parser.exceptions.ParseException;
-//import seedu.blockbook.model.person.NameContainsKeywordsPredicate;
-//import seedu.blockbook.model.person.Person;
-//import seedu.blockbook.testutil.EditPersonDescriptorBuilder;
-//import seedu.blockbook.testutil.PersonBuilder;
-//import seedu.blockbook.testutil.PersonUtil;
+//import seedu.blockbook.model.Gamer.NameContainsKeywordsPredicate;
+//import seedu.blockbook.model.Gamer.Gamer;
+//import seedu.blockbook.testutil.EditGamerDescriptorBuilder;
+//import seedu.blockbook.testutil.GamerBuilder;
+//import seedu.blockbook.testutil.GamerUtil;
 
 public class BlockBookParserTest {
 
@@ -35,9 +35,9 @@ public class BlockBookParserTest {
 //
 //    @Test
 //    public void parseCommand_add() throws Exception {
-//        Person person = new PersonBuilder().build();
-//        AddCommand command = (AddCommand) parser.parseCommand(PersonUtil.getAddCommand(person));
-//        assertEquals(new AddCommand(person), command);
+//        Gamer Gamer = new GamerBuilder().build();
+//        AddCommand command = (AddCommand) parser.parseCommand(GamerUtil.getAddCommand(Gamer));
+//        assertEquals(new AddCommand(Gamer), command);
 //    }
 //
 //    @Test
@@ -55,10 +55,10 @@ public class BlockBookParserTest {
 //
 //    @Test
 //    public void parseCommand_edit() throws Exception {
-//        Person person = new PersonBuilder().build();
-//        EditPersonDescriptor descriptor = new EditPersonDescriptorBuilder(person).build();
+//        Gamer Gamer = new GamerBuilder().build();
+//        EditGamerDescriptor descriptor = new EditGamerDescriptorBuilder(Gamer).build();
 //        EditCommand command = (EditCommand) parser.parseCommand(EditCommand.COMMAND_WORD + " "
-//                + INDEX_FIRST_GAMER.getOneBased() + " " + PersonUtil.getEditPersonDescriptorDetails(descriptor));
+//                + INDEX_FIRST_GAMER.getOneBased() + " " + GamerUtil.getEditGamerDescriptorDetails(descriptor));
 //        assertEquals(new EditCommand(INDEX_FIRST_GAMER, descriptor), command);
 //    }
 //
@@ -100,6 +100,7 @@ public class BlockBookParserTest {
 //        assertThrows(ParseException.class, MESSAGE_UNKNOWN_COMMAND, () -> parser.parseCommand("unknownCommand"));
 //    }
 }
+
 
 
 

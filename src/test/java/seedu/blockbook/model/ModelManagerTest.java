@@ -5,8 +5,8 @@ package seedu.blockbook.model;
 //import static org.junit.jupiter.api.Assertions.assertTrue;
 //import static seedu.blockbook.model.Model.PREDICATE_SHOW_ALL_GAMERS;
 //import static seedu.blockbook.testutil.Assert.assertThrows;
-//import static seedu.blockbook.testutil.TypicalPersons.ALICE;
-//import static seedu.blockbook.testutil.TypicalPersons.BENSON;
+//import static seedu.blockbook.testutil.TypicalGamers.ALICE;
+//import static seedu.blockbook.testutil.TypicalGamers.BENSON;
 //
 //import java.nio.file.Path;
 //import java.nio.file.Paths;
@@ -15,8 +15,8 @@ package seedu.blockbook.model;
 //import org.junit.jupiter.api.Test;
 //
 //import seedu.blockbook.commons.core.GuiSettings;
-//import seedu.blockbook.model.person.NameContainsKeywordsPredicate;
-//import seedu.blockbook.testutil.AddressBookBuilder;
+//import seedu.blockbook.model.Gamer.NameContainsKeywordsPredicate;
+//import seedu.blockbook.testutil.BlockBookBuilder;
 
 public class ModelManagerTest {
 
@@ -26,7 +26,7 @@ public class ModelManagerTest {
 //    public void constructor() {
 //        assertEquals(new UserPrefs(), modelManager.getUserPrefs());
 //        assertEquals(new GuiSettings(), modelManager.getGuiSettings());
-//        assertEquals(new AddressBook(), new AddressBook(modelManager.getAddressBook()));
+//        assertEquals(new BlockBook(), new BlockBook(modelManager.getBlockBook()));
 //    }
 //
 //    @Test
@@ -37,14 +37,14 @@ public class ModelManagerTest {
 //    @Test
 //    public void setUserPrefs_validUserPrefs_copiesUserPrefs() {
 //        UserPrefs userPrefs = new UserPrefs();
-//        userPrefs.setAddressBookFilePath(Paths.get("address/book/file/path"));
+//        userPrefs.setBlockBookFilePath(Paths.get("address/book/file/path"));
 //        userPrefs.setGuiSettings(new GuiSettings(1, 2, 3, 4));
 //        modelManager.setUserPrefs(userPrefs);
 //        assertEquals(userPrefs, modelManager.getUserPrefs());
 //
 //        // Modifying userPrefs should not modify modelManager's userPrefs
 //        UserPrefs oldUserPrefs = new UserPrefs(userPrefs);
-//        userPrefs.setAddressBookFilePath(Paths.get("new/address/book/file/path"));
+//        userPrefs.setBlockBookFilePath(Paths.get("new/address/book/file/path"));
 //        assertEquals(oldUserPrefs, modelManager.getUserPrefs());
 //    }
 //
@@ -61,31 +61,31 @@ public class ModelManagerTest {
 //    }
 //
 //    @Test
-//    public void setAddressBookFilePath_nullPath_throwsNullPointerException() {
-//        assertThrows(NullPointerException.class, () -> modelManager.setAddressBookFilePath(null));
+//    public void setBlockBookFilePath_nullPath_throwsNullPointerException() {
+//        assertThrows(NullPointerException.class, () -> modelManager.setBlockBookFilePath(null));
 //    }
 //
 //    @Test
-//    public void setAddressBookFilePath_validPath_setsAddressBookFilePath() {
+//    public void setBlockBookFilePath_validPath_setsBlockBookFilePath() {
 //        Path path = Paths.get("address/book/file/path");
-//        modelManager.setAddressBookFilePath(path);
-//        assertEquals(path, modelManager.getAddressBookFilePath());
+//        modelManager.setBlockBookFilePath(path);
+//        assertEquals(path, modelManager.getBlockBookFilePath());
 //    }
 //
 //    @Test
-//    public void hasPerson_nullPerson_throwsNullPointerException() {
-//        assertThrows(NullPointerException.class, () -> modelManager.hasPerson(null));
+//    public void hasGamer_nullGamer_throwsNullPointerException() {
+//        assertThrows(NullPointerException.class, () -> modelManager.hasGamer(null));
 //    }
 //
 //    @Test
-//    public void hasPerson_personNotInAddressBook_returnsFalse() {
-//        assertFalse(modelManager.hasPerson(ALICE));
+//    public void hasGamer_GamerNotInBlockBook_returnsFalse() {
+//        assertFalse(modelManager.hasGamer(ALICE));
 //    }
 //
 //    @Test
-//    public void hasPerson_personInAddressBook_returnsTrue() {
-//        modelManager.addPerson(ALICE);
-//        assertTrue(modelManager.hasPerson(ALICE));
+//    public void hasGamer_GamerInBlockBook_returnsTrue() {
+//        modelManager.addGamer(ALICE);
+//        assertTrue(modelManager.hasGamer(ALICE));
 //    }
 //
 //    @Test
@@ -95,13 +95,13 @@ public class ModelManagerTest {
 //
 //    @Test
 //    public void equals() {
-//        AddressBook addressBook = new AddressBookBuilder().withPerson(ALICE).withPerson(BENSON).build();
-//        AddressBook differentAddressBook = new AddressBook();
+//        BlockBook BlockBook = new BlockBookBuilder().withGamer(ALICE).withGamer(BENSON).build();
+//        BlockBook differentBlockBook = new BlockBook();
 //        UserPrefs userPrefs = new UserPrefs();
 //
 //        // same values -> returns true
-//        modelManager = new ModelManager(addressBook, userPrefs);
-//        ModelManager modelManagerCopy = new ModelManager(addressBook, userPrefs);
+//        modelManager = new ModelManager(BlockBook, userPrefs);
+//        ModelManager modelManagerCopy = new ModelManager(BlockBook, userPrefs);
 //        assertTrue(modelManager.equals(modelManagerCopy));
 //
 //        // same object -> returns true
@@ -113,22 +113,24 @@ public class ModelManagerTest {
 //        // different types -> returns false
 //        assertFalse(modelManager.equals(5));
 //
-//        // different addressBook -> returns false
-//        assertFalse(modelManager.equals(new ModelManager(differentAddressBook, userPrefs)));
+//        // different BlockBook -> returns false
+//        assertFalse(modelManager.equals(new ModelManager(differentBlockBook, userPrefs)));
 //
 //        // different filteredList -> returns false
 //        String[] keywords = ALICE.getName().fullName.split("\\s+");
 //        modelManager.updateFilteredGamerList(new NameContainsKeywordsPredicate(Arrays.asList(keywords)));
-//        assertFalse(modelManager.equals(new ModelManager(addressBook, userPrefs)));
+//        assertFalse(modelManager.equals(new ModelManager(BlockBook, userPrefs)));
 //
 //        // resets modelManager to initial state for upcoming tests
 //        modelManager.updateFilteredGamerList(PREDICATE_SHOW_ALL_GAMERS);
 //
 //        // different userPrefs -> returns false
 //        UserPrefs differentUserPrefs = new UserPrefs();
-//        differentUserPrefs.setAddressBookFilePath(Paths.get("differentFilePath"));
-//        assertFalse(modelManager.equals(new ModelManager(addressBook, differentUserPrefs)));
+//        differentUserPrefs.setBlockBookFilePath(Paths.get("differentFilePath"));
+//        assertFalse(modelManager.equals(new ModelManager(BlockBook, differentUserPrefs)));
 //    }
 }
+
+
 
 

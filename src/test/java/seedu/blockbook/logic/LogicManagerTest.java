@@ -1,14 +1,14 @@
-package seedu.address.logic;
+package seedu.blockbook.logic;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static seedu.address.logic.Messages.MESSAGE_INDEX_OUT_OF_RANGE;
-import static seedu.address.logic.Messages.MESSAGE_UNKNOWN_COMMAND;
-import static seedu.address.logic.commands.CommandTestUtil.GAMERTAG_DESC_AMY;
-import static seedu.address.logic.commands.CommandTestUtil.NAME_DESC_AMY;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_GAMERTAG_AMY;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_AMY;
-import static seedu.address.testutil.Assert.assertThrows;
-import static seedu.address.testutil.TypicalGamers.AMY;
+import static seedu.blockbook.logic.Messages.MESSAGE_INDEX_OUT_OF_RANGE;
+import static seedu.blockbook.logic.Messages.MESSAGE_UNKNOWN_COMMAND;
+import static seedu.blockbook.logic.commands.CommandTestUtil.GAMERTAG_DESC_AMY;
+import static seedu.blockbook.logic.commands.CommandTestUtil.NAME_DESC_AMY;
+import static seedu.blockbook.logic.commands.CommandTestUtil.VALID_GAMERTAG_AMY;
+import static seedu.blockbook.logic.commands.CommandTestUtil.VALID_NAME_AMY;
+import static seedu.blockbook.testutil.Assert.assertThrows;
+import static seedu.blockbook.testutil.TypicalGamers.AMY;
 
 import java.io.IOException;
 import java.nio.file.AccessDeniedException;
@@ -18,20 +18,20 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
-import seedu.address.logic.commands.AddCommand;
-import seedu.address.logic.commands.CommandResult;
-import seedu.address.logic.commands.ListCommand;
-import seedu.address.logic.commands.exceptions.CommandException;
-import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.Model;
-import seedu.address.model.ModelManager;
-import seedu.address.model.ReadOnlyBlockBook;
-import seedu.address.model.UserPrefs;
-import seedu.address.model.gamer.Gamer;
-import seedu.address.storage.JsonBlockBookStorage;
-import seedu.address.storage.JsonUserPrefsStorage;
-import seedu.address.storage.StorageManager;
-import seedu.address.testutil.GamerBuilder;
+import seedu.blockbook.logic.commands.AddCommand;
+import seedu.blockbook.logic.commands.CommandResult;
+import seedu.blockbook.logic.commands.ListCommand;
+import seedu.blockbook.logic.commands.exceptions.CommandException;
+import seedu.blockbook.logic.parser.exceptions.ParseException;
+import seedu.blockbook.model.Model;
+import seedu.blockbook.model.ModelManager;
+import seedu.blockbook.model.ReadOnlyBlockBook;
+import seedu.blockbook.model.UserPrefs;
+import seedu.blockbook.model.gamer.Gamer;
+import seedu.blockbook.storage.JsonBlockBookStorage;
+import seedu.blockbook.storage.JsonUserPrefsStorage;
+import seedu.blockbook.storage.StorageManager;
+import seedu.blockbook.testutil.GamerBuilder;
 
 public class LogicManagerTest {
     private static final IOException DUMMY_IO_EXCEPTION = new IOException("dummy IO exception");
@@ -45,10 +45,10 @@ public class LogicManagerTest {
 
     @BeforeEach
     public void setUp() {
-        JsonBlockBookStorage addressBookStorage =
+        JsonBlockBookStorage blockBookStorage =
                 new JsonBlockBookStorage(temporaryFolder.resolve("contacts.json"));
         JsonUserPrefsStorage userPrefsStorage = new JsonUserPrefsStorage(temporaryFolder.resolve("userPrefs.json"));
-        StorageManager storage = new StorageManager(addressBookStorage, userPrefsStorage);
+        StorageManager storage = new StorageManager(blockBookStorage, userPrefsStorage);
         logic = new LogicManager(model, storage);
     }
 
@@ -85,7 +85,7 @@ public class LogicManagerTest {
 
     @Test
     public void getFilteredGamerList_modifyList_throwsUnsupportedOperationException() {
-        assertThrows(UnsupportedOperationException.class, () -> logic.getFilteredPersonList().remove(0));
+        assertThrows(UnsupportedOperationException.class, () -> logic.getFilteredGamerList().remove(0));
     }
 
     /**
@@ -155,10 +155,10 @@ public class LogicManagerTest {
     private void assertCommandFailureForExceptionFromStorage(IOException e, String expectedMessage) {
         Path prefPath = temporaryFolder.resolve("ExceptionUserPrefs.json");
 
-        // Inject LogicManager with an AddressBookStorage that throws the IOException e when saving
-        JsonBlockBookStorage addressBookStorage = new JsonBlockBookStorage(prefPath) {
+        // Inject LogicManager with a BlockBookStorage that throws the IOException e when saving
+        JsonBlockBookStorage blockBookStorage = new JsonBlockBookStorage(prefPath) {
             @Override
-            public void saveBlockBook(ReadOnlyBlockBook addressBook, Path filePath)
+            public void saveBlockBook(ReadOnlyBlockBook blockBook, Path filePath)
                     throws IOException {
                 throw e;
             }
@@ -166,11 +166,11 @@ public class LogicManagerTest {
 
         JsonUserPrefsStorage userPrefsStorage =
                 new JsonUserPrefsStorage(temporaryFolder.resolve("ExceptionUserPrefs.json"));
-        StorageManager storage = new StorageManager(addressBookStorage, userPrefsStorage);
+        StorageManager storage = new StorageManager(blockBookStorage, userPrefsStorage);
 
         logic = new LogicManager(model, storage);
 
-        // Triggers the saveAddressBook method by executing an add command
+        // Triggers the saveBlockBook method by executing an add command
         String addCommand = AddCommand.COMMAND_WORD + NAME_DESC_AMY + GAMERTAG_DESC_AMY;
         Gamer expectedGamer = new GamerBuilder().withName(VALID_NAME_AMY).withGamerTag(VALID_GAMERTAG_AMY).build();
         ModelManager expectedModel = new ModelManager();

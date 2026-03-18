@@ -14,10 +14,10 @@ package seedu.blockbook.logic.parser;
 //import org.junit.jupiter.api.Test;
 //
 //import seedu.blockbook.logic.parser.exceptions.ParseException;
-//import seedu.blockbook.model.person.Address;
-//import seedu.blockbook.model.person.Email;
-//import seedu.blockbook.model.person.Name;
-//import seedu.blockbook.model.person.Phone;
+//import seedu.blockbook.model.Gamer.Address;
+//import seedu.blockbook.model.Gamer.Email;
+//import seedu.blockbook.model.Gamer.Name;
+//import seedu.blockbook.model.Gamer.Phone;
 //import seedu.blockbook.model.tag.Tag;
 
 public class ParserUtilTest {
@@ -194,5 +194,6 @@ public class ParserUtilTest {
 //        assertEquals(expectedTagSet, actualTagSet);
 //    }
 }
+
 
 

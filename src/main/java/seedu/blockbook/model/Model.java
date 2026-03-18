@@ -40,48 +40,48 @@ public interface Model {
     Path getBlockBookFilePath();
 
     /**
-     * Sets the user prefs' address book file path.
+     * Sets the user prefs' BlockBook file path.
      */
-    void setBlockBookFilePath(Path addressBookFilePath);
+    void setBlockBookFilePath(Path blockBookFilePath);
 
 
     /**
-     * Replaces address book data with the data in {@code addressBook}.
+     * Replaces BlockBook data with the data in {@code blockBook}.
      */
-    void setBlockBook(ReadOnlyBlockBook addressBook);
+    void setBlockBook(ReadOnlyBlockBook blockBook);
 
-    /** Returns the AddressBook */
+    /** Returns the BlockBook */
     ReadOnlyBlockBook getBlockBook();
 
     /**
-     * Returns true if a person with the same identity as {@code person} exists in the address book.
+     * Returns true if a gamer with the same identity as {@code gamer} exists in the BlockBook.
      */
-    boolean hasPerson(Gamer gamer);
+    boolean hasGamer(Gamer gamer);
 
     /**
-     * Deletes the given person.
-     * The person must exist in the address book.
+     * Deletes the given gamer.
+     * The gamer must exist in the BlockBook.
      */
-    void deletePerson(Gamer target);
+    void deleteGamer(Gamer target);
 
     /**
-     * Adds the given person.
-     * {@code person} must not already exist in the address book.
+     * Adds the given gamer.
+     * {@code gamer} must not already exist in the BlockBook.
      */
     void addGamer(Gamer gamer);
 
     /**
-     * Replaces the given person {@code target} with {@code editedPerson}.
-     * {@code target} must exist in the address book.
-     * The person identity of {@code editedPerson} must not be the same as another existing person in the address book.
+     * Replaces the given gamer {@code target} with {@code editedGamer}.
+     * {@code target} must exist in the BlockBook.
+     * The gamer identity of {@code editedGamer} must not be the same as another existing gamer in the BlockBook.
      */
-    void setPerson(Gamer target, Gamer editedGamer);
+    void setGamer(Gamer target, Gamer editedGamer);
 
     /** Returns an unmodifiable view of the filtered gamer list */
     ObservableList<Gamer> getFilteredGamerList();
 
     /**
-     * Updates the filter of the filtered person list to filter by the given {@code predicate}.
+     * Updates the filter of the filtered gamer list to filter by the given {@code predicate}.
      * @throws NullPointerException if {@code predicate} is null.
      */
     void updateFilteredGamerList(Predicate<Gamer> predicate);

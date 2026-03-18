@@ -1,17 +1,17 @@
-package seedu.address.testutil;
+package seedu.blockbook.testutil;
 
-//import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
-//import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_GAMERTAG;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
-//import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
-//import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
+//import static seedu.blockbook.logic.parser.CliSyntax.PREFIX_ADDRESS;
+//import static seedu.blockbook.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.blockbook.logic.parser.CliSyntax.PREFIX_GAMERTAG;
+import static seedu.blockbook.logic.parser.CliSyntax.PREFIX_NAME;
+//import static seedu.blockbook.logic.parser.CliSyntax.PREFIX_PHONE;
+//import static seedu.blockbook.logic.parser.CliSyntax.PREFIX_TAG;
 //
 //import java.util.Set;
 
-import seedu.address.logic.commands.AddCommand;
-import seedu.address.logic.commands.EditCommand.EditGamerDescriptor;
-import seedu.address.model.gamer.Gamer;
+import seedu.blockbook.logic.commands.AddCommand;
+import seedu.blockbook.logic.commands.EditCommand.EditGamerDescriptor;
+import seedu.blockbook.model.gamer.Gamer;
 
 /**
  * A utility class for Gamer.
@@ -19,21 +19,21 @@ import seedu.address.model.gamer.Gamer;
 public class GamerUtil {
 
     /**
-     * Returns an add command string for adding the {@code person}.
+     * Returns an add command string for adding the {@code gamer}.
      */
-    public static String getAddCommand(Gamer person) {
-        return AddCommand.COMMAND_WORD + " " + getGamerDetails(person);
+    public static String getAddCommand(Gamer gamer) {
+        return AddCommand.COMMAND_WORD + " " + getGamerDetails(gamer);
     }
 
     /**
-     * Returns the part of command string for the given {@code person}'s details.
+     * Returns the part of command string for the given {@code gamer}'s details.
      */
-    public static String getGamerDetails(Gamer person) {
+    public static String getGamerDetails(Gamer gamer) {
         StringBuilder sb = new StringBuilder();
-        sb.append(PREFIX_NAME + person.getName().fullName + " ");
-        sb.append(PREFIX_GAMERTAG + person.getGamerTag().fullGamerTag + " ");
-        // sb.append(PREFIX_PHONE + person.getPhone().value + " ");
-        // sb.append(PREFIX_EMAIL + person.getEmail().value + " ");
+        sb.append(PREFIX_NAME + gamer.getName().fullName + " ");
+        sb.append(PREFIX_GAMERTAG + gamer.getGamerTag().fullGamerTag + " ");
+        // sb.append(PREFIX_PHONE + gamer.getPhone().value + " ");
+        // sb.append(PREFIX_EMAIL + gamer.getEmail().value + " ");
 
         return sb.toString();
     }

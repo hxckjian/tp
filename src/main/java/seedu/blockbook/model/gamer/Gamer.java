@@ -85,8 +85,8 @@ public class Gamer {
         Gamer otherGamer = (Gamer) other;
         return name.equals(otherGamer.name)
                 && gamerTag.equals(otherGamer.gamerTag);
-        //        && phone.equals(otherPerson.phone)
-        //        && email.equals(otherPerson.email);
+        //        && phone.equals(otherGamer.phone)
+        //        && email.equals(otherGamer.email);
     }
 
     @Override

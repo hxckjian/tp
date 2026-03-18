@@ -3,12 +3,12 @@ package seedu.blockbook.logic.commands;
 //import static org.junit.jupiter.api.Assertions.assertEquals;
 //import static org.junit.jupiter.api.Assertions.assertFalse;
 //import static org.junit.jupiter.api.Assertions.assertTrue;
-//import static seedu.blockbook.logic.Messages.MESSAGE_PERSONS_LISTED_OVERVIEW;
+//import static seedu.blockbook.logic.Messages.MESSAGE_GAMERS_LISTED_COUNT;
 //import static seedu.blockbook.logic.commands.CommandTestUtil.assertCommandSuccess;
-//import static seedu.blockbook.testutil.TypicalPersons.CARL;
-//import static seedu.blockbook.testutil.TypicalPersons.ELLE;
-//import static seedu.blockbook.testutil.TypicalPersons.FIONA;
-//import static seedu.blockbook.testutil.TypicalPersons.getTypicalAddressBook;
+//import static seedu.blockbook.testutil.TypicalGamers.CARL;
+//import static seedu.blockbook.testutil.TypicalGamers.ELLE;
+//import static seedu.blockbook.testutil.TypicalGamers.FIONA;
+//import static seedu.blockbook.testutil.TypicalGamers.getTypicalBlockBook;
 
 //import java.util.Arrays;
 //import java.util.Collections;
@@ -18,14 +18,14 @@ package seedu.blockbook.logic.commands;
 //import seedu.blockbook.model.Model;
 //import seedu.blockbook.model.ModelManager;
 //import seedu.blockbook.model.UserPrefs;
-//import seedu.blockbook.model.person.NameContainsKeywordsPredicate;
+//import seedu.blockbook.model.gamer.NameContainsKeywordsPredicate;
 
 /**
  * Contains integration tests (interaction with the Model) for {@code FindCommand}.
  */
 public class FindCommandTest {
-//    private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
-//    private Model expectedModel = new ModelManager(getTypicalAddressBook(), new UserPrefs());
+//    private Model model = new ModelManager(getTypicalBlockBook(), new UserPrefs());
+//    private Model expectedModel = new ModelManager(getTypicalBlockBook(), new UserPrefs());
 //
 //    @Test
 //    public void equals() {
@@ -50,13 +50,13 @@ public class FindCommandTest {
 //        // null -> returns false
 //        assertFalse(findFirstCommand.equals(null));
 //
-//        // different person -> returns false
+    //        // different gamer -> returns false
 //        assertFalse(findFirstCommand.equals(findSecondCommand));
 //    }
 //
 //    @Test
-//    public void execute_zeroKeywords_noPersonFound() {
-//        String expectedMessage = String.format(MESSAGE_PERSONS_LISTED_OVERVIEW, 0);
+//    public void execute_zeroKeywords_noGamerFound() {
+//        String expectedMessage = String.format(MESSAGE_GAMERS_LISTED_COUNT, 0);
 //        NameContainsKeywordsPredicate predicate = preparePredicate(" ");
 //        FindCommand command = new FindCommand(predicate);
 //        expectedModel.updateFilteredGamerList(predicate);
@@ -65,8 +65,8 @@ public class FindCommandTest {
 //    }
 //
 //    @Test
-//    public void execute_multipleKeywords_multiplePersonsFound() {
-//        String expectedMessage = String.format(MESSAGE_PERSONS_LISTED_OVERVIEW, 3);
+//    public void execute_multipleKeywords_multipleGamersFound() {
+//        String expectedMessage = String.format(MESSAGE_GAMERS_LISTED_COUNT, 3);
 //        NameContainsKeywordsPredicate predicate = preparePredicate("Kurz Elle Kunz");
 //        FindCommand command = new FindCommand(predicate);
 //        expectedModel.updateFilteredGamerList(predicate);
@@ -89,5 +89,6 @@ public class FindCommandTest {
 //        return new NameContainsKeywordsPredicate(Arrays.asList(userInput.split("\\s+")));
 //    }
 }
+
 
 
