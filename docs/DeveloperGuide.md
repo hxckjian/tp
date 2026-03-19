@@ -291,21 +291,21 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | general user                | list out my contacts                                    | see my contacts that I saved previously                                |
 | `* * *`  | general user                | view a contact’s profile with their full details        | access comprehensive details when needed                               |
 | `* *`    | general user                | find a gamer by name                                   | locate details of gamers without having to go through the entire list |
-| `* *`    | new user                    | see usage instructions                                  | figure out how to use the app easily                                   |
-| `* *`    | general user                | update contact details                                  | keep track of my contacts' latest information                          |
-| `* *`    | general user                | avoid adding duplicate contacts                         | not store the same contact twice by accident                           |
-| `* *`    | general user                | sort the contacts alphabetically                        | access my contacts easier                                              |
-| `* *`    | general user                | sort the contacts by added date                         | find my contacts I recently added                                      |
-| `* *`    | minecraft gamer / pro typer | delete contacts in bulk                                 | delete more contacts at one go                                         |
-| `* *`    | general user                | see clear error messages when I enter invalid commands  | correct my mistakes quickly                                            |
-| `* *`    | general user                | add contacts to a favourites list                       | access my favourite contacts easier                                    |
-| `* *`    | general user                | list out my favourite contacts                          | find my favourite contacts                                             |
-| `* *`    | general user                | add a personal note to a contact's profile              | preserve context information about a contact                           |
-| `* *`    | general user                | create a social group                                   | create groups with contacts with a context                             |
-| `* *`    | general user                | add contact to social group                             | find the contact's I want to play with based on context                |
-| `*`      | general user                | use autocomplete when typing in CLI                     | type faster and easier when I forget the command                       |
-| `*`      | general user                | add profile picture to contact                          | recognise contacts more easily via visual                              |
-| `*`      | minecraft gamer             | see quality sprite styles that align with minecraft     | have a good interface experience                                       |
+| `* *`    | new user                    | see usage instructions                                  | figure out how to use the app easily                                  |
+| `* *`    | general user                | update contact details                                  | keep track of my contacts' latest information                         |
+| `* *`    | general user                | avoid adding duplicate contacts                         | not store the same contact twice by accident                          |
+| `* *`    | general user                | sort the contacts alphabetically                        | access my contacts easier                                             |
+| `* *`    | general user                | sort the contacts by added date                         | find my contacts I recently added                                     |
+| `* *`    | minecraft gamer / pro typer | delete contacts in bulk                                 | delete more contacts at one go                                        |
+| `* *`    | general user                | see clear error messages when I enter invalid commands  | correct my mistakes quickly                                           |
+| `* *`    | general user                | add contacts to a favourites list                       | access my favourite contacts easier                                   |
+| `* *`    | general user                | list out my favourite contacts                          | find my favourite contacts                                            |
+| `* *`    | general user                | add a personal note to a contact's profile              | preserve context information about a contact                          |
+| `* *`    | general user                | create a social group                                   | create groups with contacts with a context                            |
+| `* *`    | general user                | add contact to social group                             | find the contacts I want to play with based on context                |
+| `*`      | general user                | use autocomplete when typing in CLI                     | type faster and easier when I forget the command                      |
+| `*`      | general user                | add profile picture to contact                          | recognise contacts more easily via visual                             |
+| `*`      | minecraft gamer             | see quality sprite styles that align with minecraft     | have a good interface experience                                      |
 
 ### Use cases
 
